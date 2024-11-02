@@ -1,0 +1,107 @@
+
+.bodye{
+background-image: linear-gradient(123.77deg, #8a2be2 -6.46%, #FFD60A 59.04%, #f8f8ff 124.53%);
+    border-radius: 100%;
+        -webkit-filter: blur(34px);
+        filter: blur(34px);
+        height: 257.05px;
+        left: calc(50% - 263.005px);
+        opacity: .2;
+        top: calc(50% - 175.995px);
+        -webkit-transform: matrix(1, 0, -.03, 1, 0, 0);
+        transform: matrix(1, 0, -.03, 1, 0, 0);
+        
+        border: 4px solid white;
+}
+
+.bodye1 {
+    background-image: linear-gradient(123.77deg, #00cff4 -6.46%, #0afbff 59.04%, #f8f8ff 124.53%);
+    border-radius: 100%;
+    -webkit-filter: blur(34px);
+    filter: blur(34px);
+    height: 257.05px;
+    left: calc(50% - 263.005px);
+    opacity: .1;
+    top: calc(50% - 175.995px);
+    -webkit-transform: matrix(1, 0, -.03, 1, 0, 0);
+    transform: matrix(1, 0, -.03, 1, 0, 0);
+
+    border: 4px solid white;
+}
+
+.grd1{
+   position: absolute;
+        
+        
+}
+.bdr1{
+    border: 2px solid;
+        border-image-slice: 1;
+        border-image-source: linear-gradient(to right bottom, #ffffff38, #ffffff00);
+}
+
+.description-section {
+    position: relative;
+    z-index: 2;
+    /* Ensure the content inside is above the gradient */
+    color: #fff;
+    /* Adjust the text color if needed */
+}
+.categorysec{
+backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+.categorysec1 {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    
+}
+.categorysec2 {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+.ctg2 {
+    background-color: #111927;
+    background-image:
+        radial-gradient(at 47% 33%, hsl(120, 3%, 6%) 0, transparent 59%),
+        radial-gradient(at 82% 65%, hsl(218.00, 39%, 11%) 0, transparent 55%);
+
+}
+.ctg{
+ background-color: #111927;
+            background-image:
+                radial-gradient(at 47% 33%, hsl(162.00, 77%, 40%) 0, transparent 59%),
+                radial-gradient(at 82% 65%, hsl(218.00, 39%, 11%) 0, transparent 55%);
+        
+}
+.ctg1 {
+    background-color: #111927;
+    background-image:
+        radial-gradient(at 47% 33%, hsl(160, 16%, 25%) 0, transparent 59%),
+        radial-gradient(at 82% 65%, hsl(218.00, 39%, 11%) 0, transparent 55%);
+
+}
+
+.bgimg{
+
+    background-image: url(https://d8it4huxumps7.cloudfront.net/uploads/images/login/border-vector-image.png?d=943x2825);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+  
+ 
+}
+.bgimg1{
+  
+box-shadow: 0 15px 25px -4px rgba(0, 0, 0, 0.5), inset 0 -3px 4px -1px rgba(0, 0, 0, 0.2), 0 -10px 15px -1px rgba(255, 255, 255, 0.6), inset 0 3px 4px -1px rgba(255, 255, 255, 0.2), inset 0 0 5px 1px rgba(255, 255, 255, 0.8), inset 0 20px 30px 0 rgba(255, 255, 255, 0.2);
+} 
