@@ -4,6 +4,7 @@ const initialState = {
   step: 1,
   course: null,
   editCourse: false,
+  editNotes: false,
   paymentLoading: false,
 }
 
@@ -32,6 +33,9 @@ const courseSlice = createSlice({
       if (state.course) {
         state.course.status = action.payload
       }
+    },
+    setEditNotes: (state, action) => {
+      state.editNotes = action.payload
     },
   },
 })

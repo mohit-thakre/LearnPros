@@ -43,6 +43,17 @@ export const courseEndpoints = {
   LECTURE_COMPLETION_API: BASE_URL + "/course/updateCourseProgress",
   CREATE_RATING_API: BASE_URL + "/course/createRating",
 }
+export const notesEndpoints = {
+  CREATE_NOTES_API: BASE_URL + "/notes/createNotes",
+  EDIT_NOTES_API: BASE_URL + "/notes/editNotes",
+  GET_NOTES_API: BASE_URL + "/notes/getAllNotes",
+  DELETE_NOTES_API: BASE_URL + "/notes/deleteNotes",
+  NOTES_CATEGORIES_API: BASE_URL + "/notes/getAllNotesCategory",
+  NOTES_CATALOGPAGEDATA_API: BASE_URL + "/notes/notesCategoryPageDetails",
+  GET_INSTRUCTOR_NOTES_API: BASE_URL + "/notes/getInstructorNotes",
+  GET_SINGLE_NOTES_API: BASE_URL + "/notes/getSingleCourseDetails",
+  GET_FULL_NOTES_DETAILS: BASE_URL + "/notes/getFullNotesDetails",
+}
 
 // RATINGS AND REVIEWS
 export const ratingsEndpoints = {
@@ -52,11 +63,13 @@ export const ratingsEndpoints = {
 // CATAGORIES API
 export const categories = {
   CATEGORIES_API: BASE_URL + "/course/showAllCategories",
+  NOTES_CATEGORIES_API: BASE_URL + "/notes/getAllNotesCategory",
 }
 
 // CATALOG PAGE DATA
 export const catalogData = {
   CATALOGPAGEDATA_API: BASE_URL + "/course/getCategoryPageDetails",
+  NOTES_CATALOGPAGEDATA_API: BASE_URL + "/notes/notesCategoryPageDetails",
 }
 // CONTACT-US API
 export const contactusEndpoint = {

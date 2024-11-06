@@ -42,6 +42,9 @@ import VerifyOtp from "./pages/VerifyOtp"
 import ForgetPassword from "./pages/ForgetPassword"
 import Resetpassword from "./pages/Resetpassword"
 import UnderDevelopmentPage from "./components/Common/UnderDevelopmentPage"
+import NotesBuilder from "./components/core/Dashboard/AddNotes/NotesBuilder"
+import NotesCatalog from "./pages/NotesCatalog"
+import EditNotes from "./components/core/Dashboard/AddNotes/EditNotes"
 
 
 function App() {
@@ -67,6 +70,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="courses/:courseId" element={<CourseDetails />} />
         <Route path="catalog/:catalogName" element={<Catalog />} />
+        <Route path="notes/:notesName" element={<NotesCatalog/>} />
          <Route path="/underdevelopment" element={<UnderDevelopmentPage />} />
           <Route path="/catalog/view-course" element={<UnderDevelopmentPage />} />
         {/* Open Route - for Only Non Logged in User */}
@@ -126,11 +130,14 @@ function App() {
             <>
               <Route path="dashboard/instructor" element={<Instructor />} />
               <Route path="dashboard/my-courses" element={<MyCourses />} />
+              <Route path="dashboard/my-notes" element={<MyCourses />} />
               <Route path="dashboard/add-course" element={<AddCourse />} />
+              <Route path="dashboard/add-notes" element={<NotesBuilder/>} />
               <Route
                 path="dashboard/edit-course/:courseId"
                 element={<EditCourse />}
               />
+              <Route path="dashboard/edit-notes/:notesId" element={<EditNotes/>}/>
             </>
           )}
           {/* Route only for Students */}

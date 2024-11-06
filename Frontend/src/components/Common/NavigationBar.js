@@ -10,6 +10,7 @@ import logo from "../../assets/Logo/Logo-Full-Light.png"
 import { NavbarLinks } from "../../data/navbar-links"
 import { apiConnector } from "../../services/apiConnector"
 import { categories } from "../../services/apis"
+import { fetchNotesCatagory } from "../../services/operations/notesAPI"
 import { ACCOUNT_TYPE } from "../../utils/constants"
 
 const NavigationBar = () => {
@@ -20,13 +21,21 @@ const NavigationBar = () => {
   const avatar = localStorage.getItem("avatar")
 
   const [categoryLink, setCategoryLink] = useState([])
+  const [categoryLink1, setCategoryLink1] = useState([])
   const [isHovered, setIsHovered] = useState(false)
+  const [isHovered1, setIsHovered1] = useState(false)
   const location = useLocation()
 
   const fetchCategories = async () => {
     try {
       const response = await apiConnector("GET", categories.CATEGORIES_API)
+      const response1 = await fetchNotesCatagory()
+      if (response1) {
+        setCategoryLink1(response1)
+        console.log("===>===>REd", response1)
+      }
       setCategoryLink(response.data.data)
+      console.log("===>===>cat", response.data.data)
     } catch (error) {
       console.log(error, "nav bar")
     }
@@ -69,6 +78,64 @@ const NavigationBar = () => {
       <div className="flex gap-5 text-[17px] font-medium">
         {NavbarLinks.map((item, index) => (
           <div key={index}>
+            {item.title === "Notes" ? (
+              <div
+                onMouseEnter={() => setIsHovered1(true)}
+                onMouseLeave={() => setIsHovered1(false)}
+                className={`relative ${
+                  activeBar === item.title ? "text-yellow-50" : ""
+                }`}
+              >
+                <div className=" flex flex-row items-center justify-center gap-1">
+                  <span>{`${item.title}`}</span>
+                  <span>
+                    <FaAngleDown />
+                  </span>
+                </div>
+                {isHovered1 && (
+                  <div className="">
+                    <div
+                      className="absolute z-30 h-10 w-10 bg-white"
+                      style={{
+                        left: "89.3%",
+                        top: "10%",
+                        transform: "translateX(-50%) rotate(45deg)",
+                        top: "99%",
+                        backgroundColor: "#f0f0f0",
+                      }}
+                    ></div>
+                    <div className=" absolute z-30 flex w-[200px]  translate-y-[-20px]  flex-col rounded-xl p-6  px-4 py-2 text-black">
+                      <div
+                        className="absolute z-30 flex  w-[200px] flex-col rounded-xl bg-white px-4 py-2 text-black"
+                        style={{
+                          left: "50%",
+                          transform: "translateX(-50%)",
+                          top: "100%",
+                          marginTop: "8px",
+                        }}
+                      >
+                        {categoryLink1.length > 0 ? (
+                          categoryLink1.map((Item, index) => (
+                            <Link
+                              key={index}
+                              to={`/notes/${Item.name.replace(/\s+/g, "-")}`}
+                              className="rounded-lg border-yellow-200 px-4 py-2 text-center hover:border-2"
+                              onClick={() => setActiveBar("Catalog")}
+                            >
+                              {Item.name}
+                            </Link>
+                          ))
+                        ) : (
+                          <p>No categories available</p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              ""
+            )}
             {item.title === "Catalog" ? (
               <div
                 onMouseEnter={handleMouseEnter}
@@ -131,7 +198,7 @@ const NavigationBar = () => {
                     activeBar === item.title ? "text-yellow-50" : ""
                   }`}
                 >
-                  {item.title}
+                  {item.title === "Notes" ? "" : item.title}
                 </span>
               </Link>
             )}
