@@ -8,7 +8,7 @@ import { useEffect, useState } from "react"
 import toast from "react-hot-toast"
 import { apiConnector } from "../../../services/apiConnector"
 import { endpoints, profileEndpoints } from "../../../services/apis"
-import { set } from "mongoose"
+
 
 export default function MyProfile() {
   const token = localStorage.getItem("token")
