@@ -1,139 +1,119 @@
 import React from "react"
-import { FaFacebook, FaGoogle, FaTwitter, FaYoutube } from "react-icons/fa"
+import { AiFillGithub, AiFillStar } from "react-icons/ai"
+import { FaGithub, FaRegStar } from "react-icons/fa"
 import { Link } from "react-router-dom"
 
-// import Logo from "../assets/Logo/Logo-Full-Light.png"
 import Logo from "../assets/Logo/Logo-Full-Light.png"
-import { FooterLink2 } from "../data/footer-links"
 
-const Social = ["FaFacebook", "FaGoogle", "FaYoutube", "FaTwitter"]
-const BottomFooter = ["Privacy Policy", "Cookie Policy", "Terms"]
-const Resources = [
-  "Articles",
-  "Blog",
-  "Chart Sheet",
-  "Code challenges",
-  "Docs",
-  "Projects",
-  "Videos",
-  "Workspaces",
-]
-const Plans = ["Paid memberships", "For students", "Business solutions"]
-const Community = ["Forums", "Chapters", "Events"]
-const Cmp = ["About", "Careers", "Affiliates"]
 const FooterPage = () => {
   return (
-    <div className="min-h-[100vh] w-full bg-gradient-to-t from-caribbeangreen-900  to-richblack-900 pt-5">
-      <div className="  flex items-start justify-evenly py-5">
-        <div className=" flex items-start justify-evenly gap-10">
-          <div>
-            <img src={Logo} />
-            <h1 className=" text-md py-3 font-normal text-white">Company</h1>
-            {Cmp.map((item, index) => {
-              return (
-                <p className="text-md cursor-pointer py-[3px]  text-richblack-300 transition-all duration-200 hover:text-richblack-50">
-                  {item}
-                </p>
-              )
-            })}
-            <div className="flex gap-3 py-4">
-              <span>
-                <FaFacebook className=" text-2xl text-pure-greys-500" />
-              </span>
-              <span>
-                <FaGoogle className=" text-2xl text-pure-greys-500" />
-              </span>
-              <span>
-                <FaTwitter className=" text-2xl text-pure-greys-500" />
-              </span>
-              <span>
-                <FaYoutube className=" text-2xl text-pure-greys-500" />
-              </span>
-            </div>
-          </div>
-          <div>
-            <h1 className=" text-md py-3 font-normal text-white">Resources</h1>
-            {Resources.map((item, index) => {
-              return (
-                <p className="text-md cursor-pointer py-[3px]  text-richblack-300 transition-all duration-200 hover:text-richblack-50">
-                  {item}
-                </p>
-              )
-            })}
-            <h1 className=" text-md font-normal text-white">Support</h1>
-            <p className="text-md cursor-pointer py-[3px]  text-richblack-300 transition-all duration-200 hover:text-richblack-50">
-              Help Center
+    <div class="mb-20 w-full bg-gradient-to-t from-caribbeangreen-900 to-richblack-900 p-5 sm:m-0 sm:p-10 lg:p-20">
+      <footer className="footer flex w-full flex-wrap justify-around gap-10 rounded-2xl border-2 border-caribbeangreen-500  bg-gradient-to-t from-caribbeangreen-800 to-richblack-900  p-5 font-medium text-white/60 sm:p-10 lg:flex-nowrap">
+        <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-3">
+            <img alt="LearnPros" loading="lazy" width="250" src={Logo} />
+            <p className=" flex font-light lg:max-w-[500px]">
+              Welcome to LearnPros: Your hub for expert courses, valuable
+              resources, and career-focused growth. Let’s learn and succeed
+              together!
             </p>
           </div>
-          <div>
-            <h1 className=" text-md py-3 font-normal text-white">Plans</h1>
-            {Plans.map((item, index) => {
-              return (
-                <p className="text-md cursor-pointer py-[3px]  text-richblack-300 transition-all duration-200 hover:text-richblack-50">
-                  {item}
-                </p>
-              )
-            })}
-            <h1 className=" text-md py-3 font-normal text-white">Community</h1>
-            {Community.map((item, index) => {
-              return (
-                <p className="text-md cursor-pointer py-[3px]  text-richblack-300 transition-all duration-200 hover:text-richblack-50">
-                  {item}
-                </p>
-              )
-            })}
+          <div className="flex flex-col gap-3">
+            <h1 className="text-2xl font-bold text-white">Follow us</h1>
+            <div className="flex gap-3 py-1">
+              {/* <span>
+              
+              </span> */}
+              <a
+                href="https://github.com/mohit-thakre/LearnPros"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gray-800 flex items-center  gap-2 rounded-lg border-2 px-4 py-2 text-white transition-colors hover:bg-caribbeangreen-600"
+                style={{ textDecoration: "none" }}
+              >
+                <FaRegStar size={24} />
+                <span className=" flex gap-1 text-sm font-extralight">
+                  Star on GitHub
+                </span>
+              </a>
+            </div>
+            <p>
+              Made with 🍵 by{" "}
+              <a
+                href="https://mohit-thakre.github.io/PORTFOLIO-V2/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className=" text-yellow-25"
+              >
+                @Atom_Dev
+              </a>
+            </p>
           </div>
         </div>
-        <div className=" min-h-[90vh] w-[2px] bg-richblack-700 "></div>
 
-        <div className=" flex items-start justify-evenly gap-10">
-          {FooterLink2.map((item, index) => {
-            return (
-              <div>
-                <h1 className=" text-md py-3 font-normal text-white">
-                  {item.title}
-                </h1>
-                {item.links.map((item, index) => {
-                  return (
-                    <p
-                      className="text-md cursor-pointer py-[3px] text-richblack-300 transition-all duration-200 hover:text-richblack-50"
-                      key={index}
-                    >
-                      {item.title}
-                    </p>
-                  )
-                })}
-              </div>
-            )
-          })}
-        </div>
-      </div>
-      <div className=" mx-auto mt-[-20px] flex h-[2px] w-[80vw] items-center justify-center bg-richblack-700 "></div>
-      <div className=" flex items-center justify-between px-20 py-8">
-        <div className=" my-3 flex gap-4">
-          {BottomFooter.map((item, index) => {
-            return (
-              <div
-                className="flex items-center justify-center gap-2"
-                key={index}
-              >
-                <p className="text-md cursor-pointer py-[3px] text-richblack-300 transition-all duration-200 hover:text-richblack-50">
-                  {item}
-                </p>
+        <div className="flex min-w-48 flex-col gap-3">
+          <h1 className="text-2xl font-bold text-white">Useful links</h1>
 
-                {index !== BottomFooter.length - 1 && (
-                  <div className="mx-1 flex h-[25px] w-[3px] items-center justify-center bg-richblack-700"></div>
-                )}
-              </div>
-            )
-          })}
-        </div>
-        <div>
-          <p className="text-md cursor-pointer py-[3px] font-bold  text-richblack-300 transition-all duration-200 hover:text-richblack-50">
-            Made with ❤️ CodeHelp © 2024 Studynotion
+          <p>
+            <Link to="/about">
+              <span>About Us</span>
+            </Link>
+          </p>
+          <p>
+            <Link to="/contact">
+              <span>Improve Us</span>
+            </Link>
+          </p>
+          <p>
+            <Link to="/privacy&policy">
+              <span>Privacy Policy</span>
+            </Link>
+          </p>
+          <p>
+            <Link to="/terms">
+              <span>Terms &amp; Conditions</span>
+            </Link>
           </p>
         </div>
-      </div>
+
+        <div className="flex max-w-80 flex-col gap-3">
+          <h1 className="text-2xl font-bold text-white">Contact us</h1>
+          <span>
+            Together, let's learn, collaborate, and build for society.
+          </span>
+          <span className="flex items-center gap-4 text-lg font-bold text-white">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+            Mail us!
+          </span>
+          <a
+            href="mailto:mohitthakre1211@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @mail_me______________________________
+          </a>
+          <a
+            href="mailto:mohitthakre1211@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @mail_me______________________________
+          </a>
+        </div>
+      </footer>
     </div>
   )
 }

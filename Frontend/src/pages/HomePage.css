@@ -105,3 +105,21 @@ backdrop-filter: blur(16px) saturate(180%);
   
 box-shadow: 0 15px 25px -4px rgba(0, 0, 0, 0.5), inset 0 -3px 4px -1px rgba(0, 0, 0, 0.2), 0 -10px 15px -1px rgba(255, 255, 255, 0.6), inset 0 3px 4px -1px rgba(255, 255, 255, 0.2), inset 0 0 5px 1px rgba(255, 255, 255, 0.8), inset 0 20px 30px 0 rgba(255, 255, 255, 0.2);
 } 
+
+/* Background styles */
+.footer1 {
+    background-color: #000814;
+    background-image:
+        radial-gradient(at 47% 33%, hsl(118.86, 83%, 25%) 0, transparent 59%),
+        radial-gradient(at 82% 65%, #000814 0, transparent 55%);
+}
+
+
+.footer {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
