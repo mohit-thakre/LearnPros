@@ -4,7 +4,7 @@ import FooterPage from './FooterPage';
 const Terms = () => {
   return (
       <>
-    <div className="footer1 bg-gray-900  text-white min-h-screen flex flex-col items-center py-16">
+    <div className="footer1 px-3  bg-gray-900  text-white min-h-screen flex flex-col items-center py-3 lg:py-16">
       <div className="footer py-6 container max-w-4xl px-6 sm:px-10 lg:px-20 bg-gray-800 rounded-lg shadow-lg">
         
         {/* Header */}

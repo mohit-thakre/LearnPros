@@ -4,7 +4,7 @@ import FooterPage from './FooterPage';
 const Privacy = () => {
   return (
     <>
-    <div className="footer1 p-2 bg-gradient-to-t from-caribbeangreen-800 to-richblue-800 text-white min-h-screen flex flex-col items-center">
+    <div className="footer1 p-2 px-3 bg-gradient-to-t from-caribbeangreen-800 to-richblue-800 text-white min-h-screen flex flex-col items-center">
       <div className="footer container max-w-4xl px-6 py-16 sm:px-10 lg:px-20 flex flex-col gap-10 bg-gray-800 rounded-lg shadow-md">
         
         {/* Header */}

@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 
 const AboutTem = ({
   firstHeading = "",
@@ -11,28 +11,31 @@ const AboutTem = ({
 }) => {
   return (
     <div>
-      <div>
-        <div
-          className={` w-full ${sty} min-h-screen flex justify-center ${gap} items-center bg-richblack-900 text-white`}
-        >
-          <div className=" w-[45%]">
-            <h1 className=" font-extrabold text-5xl">
-              <span className=" text-pink-200"> {firstHeading}</span>
+      <div
+        className={`w-full ${sty} flex min-h-screen flex-col justify-center md:flex-row ${gap} items-center bg-richblack-900 p-4 text-white md:p-8`}
+      >
+        {/* Content Section */}
+        <div className="w-full p-4 md:w-[50%] lg:w-[45%]">
+          {firstHeading && (
+            <h1 className="text-3xl font-extrabold text-pink-200 md:text-4xl lg:text-5xl">
+              {firstHeading}
             </h1>
-            <h2 className=" font-extrabold text-5xl text-yellow-50 py-4">
-              {mainHeading}
-            </h2>
-            <h2
-              className={`font-${subHeadingFont} text-xl text-richblack-200 py-4`}
-            >
-              {subHeading}
-            </h2>
-          </div>
-          <div className=" w-[40%]">{image}</div>
+          )}
+          <h2 className="py-2 text-3xl font-extrabold text-yellow-50 md:py-4 md:text-4xl lg:text-5xl">
+            {mainHeading}
+          </h2>
+          <h2
+            className={`font-${subHeadingFont} py-2 text-lg text-richblack-200 md:py-4 md:text-xl lg:text-2xl`}
+          >
+            {subHeading}
+          </h2>
         </div>
+
+        {/* Image Section */}
+        <div className="w-full p-4 md:w-[50%] lg:w-[40%]">{image}</div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AboutTem;
+export default AboutTem

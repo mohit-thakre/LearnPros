@@ -79,7 +79,7 @@ const AboutPage = () => {
           />
           <AboutTem
             firstHeading=""
-            mainHeading={`code help`}
+            mainHeading={`LearnPros`}
             subHeading={
               <span>
                 Our e-learning platform was born out of a shared vision and
@@ -103,37 +103,39 @@ const AboutPage = () => {
           />
 
           <div className=" flex items-start justify-around p-10 ">
-            <div className=" w-[30%]">
-              <h2 className=" rounded-2xl border p-3 py-4 text-center text-5xl font-extrabold text-yellow-50">
-                Our Vision
-              </h2>
-              <p className="py-4 text-lg font-normal text-richblack-200">
-                With this vision in mind, we set out on a journey to create an
-                e-learning platform that would revolutionize the way people
-                learn. Our team of dedicated experts worked tirelessly to
-                develop a robust and intuitive platform that combines
-                cutting-edge technology with engaging content, fostering a
-                dynamic and interactive learning experience.
-              </p>
-            </div>
-            <div className=" w-[30%]">
-              <h2 className=" rounded-2xl border p-3  py-4 text-center text-5xl font-extrabold text-pink-200">
-                Our Mission
-              </h2>
-              <p className="py-4 text-lg font-normal text-richblack-200">
-                With this vision in mind, we set out on a journey to create an
-                e-learning platform that would revolutionize the way people
-                learn. Our team of dedicated experts worked tirelessly to
-                develop a robust and intuitive platform that combines
-                cutting-edge technology with engaging content, fostering a
-                dynamic and interactive learning experience.
-              </p>
+            <div className="flex flex-col items-start justify-around p-4 lg:flex-row lg:p-10">
+              <div className="mb-8 w-full lg:mb-0 lg:w-[30%]">
+                <h2 className="rounded-2xl border p-3 py-4 text-center text-3xl font-extrabold text-yellow-50 lg:text-5xl">
+                  Our Vision
+                </h2>
+                <p className="py-4 text-base font-normal text-richblack-200 lg:text-lg">
+                  With this vision in mind, we set out on a journey to create an
+                  e-learning platform that would revolutionize the way people
+                  learn. Our team of dedicated experts worked tirelessly to
+                  develop a robust and intuitive platform that combines
+                  cutting-edge technology with engaging content, fostering a
+                  dynamic and interactive learning experience.
+                </p>
+              </div>
+              <div className="w-full lg:w-[30%]">
+                <h2 className="rounded-2xl border p-3 py-4 text-center text-3xl font-extrabold text-pink-200 lg:text-5xl">
+                  Our Mission
+                </h2>
+                <p className="py-4 text-base font-normal text-richblack-200 lg:text-lg">
+                  With this vision in mind, we set out on a journey to create an
+                  e-learning platform that would revolutionize the way people
+                  learn. Our team of dedicated experts worked tirelessly to
+                  develop a robust and intuitive platform that combines
+                  cutting-edge technology with engaging content, fostering a
+                  dynamic and interactive learning experience.
+                </p>
+              </div>
             </div>
           </div>
 
-          <div className="flex h-[80vh] w-full items-center justify-center">
-            <div className="flex flex-col items-center justify-center">
-              <div className=" flex gap-1">
+          <div className="flex h-auto w-full flex-col items-center justify-center gap-4 lg:h-[80vh] lg:flex-row lg:gap-8">
+            <div className="flex flex-col items-center justify-center gap-4">
+              <div className="flex flex-col gap-4 sm:flex-row">
                 <AboutSmallBoxTem
                   heading="Learn"
                   subHeading="Solve easy to complex problems & get hands-on experience to get hired by your dream company!"
@@ -143,35 +145,47 @@ const AboutPage = () => {
                 <AboutBox1Tem
                   heading="Compete"
                   subHeading="Participate in various opportunities to showcase your skills and get rewarded."
-                  image={<img src={step3} className=" h-40  " alt="ab" />}
-                  bg=" bg-caribbeangreen-100"
+                  image={
+                    <img
+                      src={step3}
+                      className="h-24 sm:h-32 lg:h-40"
+                      alt="ab"
+                    />
+                  }
+                  bg="bg-caribbeangreen-100"
                 />
               </div>
-              <div className=" flex gap-1">
+              <div className="flex flex-col gap-4 sm:flex-row">
                 <AboutSmallBoxTem
                   heading="Practice"
                   subHeading="Solve easy to complex problems & get hands-on experience to get hired by your dream company!"
-                  image={<img src={step2} className=" w-full " alt="ab" />}
+                  image={<img src={step2} className="w-full" alt="ab" />}
                   bg="bg-yellow-50"
                 />
-
                 <AboutBox1Tem
                   heading="Jobs"
                   subHeading="Apply to a plethora of hiring opportunities & work with your dream companies."
-                  image={<img src={step4} className=" h-40  " alt="ab" />}
-                  bg=" bg-blue-50"
+                  image={
+                    <img
+                      src={step4}
+                      className="h-24 sm:h-32 lg:h-40"
+                      alt="ab"
+                    />
+                  }
+                  bg="bg-blue-50"
                 />
               </div>
             </div>
-            <div>
+            <div className="mt-4 w-full lg:mt-0 lg:w-auto">
               <AboutBox2
                 heading="Mentorship"
                 subHeading="Book sessions with unstoppable mentors across domains & build your career."
-                image={<img src={step5} className=" w-full " alt="ab" />}
+                image={<img src={step5} className="w-full" alt="ab" />}
                 bg="bg-caribbeangreen-5"
               />
             </div>
           </div>
+
           <div className=" mb-20 flex w-full items-center justify-center">
             <form
               className="flex flex-col gap-7"

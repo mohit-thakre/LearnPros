@@ -6,11 +6,7 @@ import { Link, useNavigate } from "react-router-dom"
 
 import logo from "../assets/Images/login-img-7.webp"
 import Css from "../pages/HomePage.css"
-import { apiConnector } from "../services/apiConnector"
-import { endpoints } from "../services/apis"
 import { login } from "../services/operations/authAPI"
-import { setToken } from "../slices/authSlice"
-import { setUser } from "../slices/profileSlice"
 
 const LoginPage = () => {
   const [form, setForm] = useState({
@@ -29,39 +25,44 @@ const LoginPage = () => {
   }
 
   const handleSubmit = async (e) => {
-    console.log(form, "DATA")
-    setLoading(true)
     e.preventDefault()
-    dispatch(login(form, navigate))
-    setLoading(false)
-  }
-
-  if (loading) {
-    return <h1 className=" bg-black p-8 text-4xl text-white">loading</h1>
+    setLoading(true)
+    try {
+      dispatch(login(form, navigate))
+      toast.success("Login successful!")
+    } catch (error) {
+      toast.error("Failed to login. Please try again.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
-    <div className=" flex min-h-screen w-full items-center justify-center bg-gradient-to-bl from-richblack-5 to-white">
-      <div className="bgimg1 flex h-[90vh] w-[70%] justify-between  rounded-xl rounded-bl-[80px] bg-white p-5 ">
-        <div className="bgimg h-full w-[40%] rounded-bl-[60px]  rounded-tr-[60px] bg-yellow-50">
-          <img className=" h-[80%] " src={logo} alt="ad" />
+    <div className="footer1  flex min-h-screen w-full items-center justify-center bg-gradient-to-bl from-richblack-900 to-caribbeangreen-900 px-4 md:px-0">
+      <div className="footer flex h-auto w-full max-w-[1100px] flex-col items-center justify-between rounded-xl bg-white p-5 shadow-lg lg:h-[90vh] lg:flex-row lg:items-stretch">
+        <div className="flex w-full items-center justify-center p-4 lg:w-[40%] lg:p-0">
+          <img
+            className="h-[80%] w-auto rounded-bl-[60px] rounded-tr-[60px]"
+            src={logo}
+            alt="ad"
+          />
         </div>
-
-        <div className=" flex w-[55%] items-center justify-center ">
-          <div className=" flex flex-col justify-start gap-3 text-black">
-            <div className=" flex">
-              <h1 className=" text-5xl">👋</h1>
-              <h1 className=" text-2xl font-medium">
-                <p className=" text-sm font-semibold ">hi, Unstoppable! ,</p>
-                Welcome Back to Code Help!
+        <div className="w-full p-4 lg:w-[60%] lg:p-8">
+          <div className="space-y-3 text-white">
+            <div className="flex items-center gap-3">
+              <h1 className="text-5xl">👋</h1>
+              <h1 className="text-2xl font-medium">
+                <p className="text-sm font-semibold">Hi,LearnProsers</p>
+                Welcome Back to LearnPros!
               </h1>
             </div>
-            <form className=" flex w-full flex-col" onSubmit={handleSubmit}>
+
+            <form className="flex w-full flex-col" onSubmit={handleSubmit}>
               <div>
-                <div class="relative mt-10 flex h-12 w-full rounded-xl">
+                <div className="relative mt-5 flex h-12 w-full rounded-xl md:mt-10">
                   <input
                     required
-                    className="peer w-full rounded-xl  border border-[#4070f4] bg-transparent bg-white px-4 text-base font-medium outline-none focus:shadow-md"
+                    className="peer w-full rounded-xl border  border-[#4070f4] bg-transparent px-4 text-sm font-medium outline-none focus:shadow-md md:text-base"
                     name="email"
                     id="email"
                     type="email"
@@ -69,18 +70,18 @@ const LoginPage = () => {
                     onChange={handleOnChange}
                   />
                   <label
-                    class="absolute left-4 top-1/2 translate-y-[-50%] bg-white px-2 text-base font-semibold duration-150  peer-valid:-top-0 peer-valid:left-3 peer-valid:text-sm peer-valid:text-[#4070f4] peer-focus:left-3 peer-focus:top-0 peer-focus:text-sm peer-focus:text-[#4070f4]"
-                    For="email"
+                    htmlFor="email"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 transform bg-white px-2 text-base font-semibold text-black transition-all duration-150 peer-valid:left-3 peer-valid:top-0 peer-valid:text-[#4070f4] peer-focus:top-0 peer-focus:text-[#4070f4]"
                   >
                     Email
                   </label>
                 </div>
 
-                <div className=" item-center flex gap-3">
-                  <div class="relative mt-7 flex h-12 w-full  rounded-xl">
+                <div className="mt-7 flex items-center gap-3">
+                  <div className="relative flex h-12 w-full rounded-xl">
                     <input
                       required
-                      className="peer w-full rounded-xl  border border-[#4070f4] bg-transparent bg-white px-4 text-base font-medium outline-none focus:shadow-md"
+                      className="peer w-full rounded-xl border border-[#4070f4] bg-transparent px-4 text-sm font-medium outline-none focus:shadow-md md:text-base"
                       name="password"
                       id="password"
                       type={eye ? "password" : "text"}
@@ -88,39 +89,39 @@ const LoginPage = () => {
                       onChange={handleOnChange}
                     />
                     <label
-                      class="absolute left-4 top-1/2 translate-y-[-50%] bg-white px-2 text-base font-semibold duration-150  peer-valid:-top-0 peer-valid:left-3 peer-valid:text-sm peer-valid:text-[#4070f4] peer-focus:left-3 peer-focus:top-0 peer-focus:text-sm peer-focus:text-[#4070f4]"
-                      For="password"
+                      htmlFor="password"
+                      className="absolute left-4 top-1/2 -translate-y-1/2 transform bg-white px-2 text-base font-semibold text-black transition-all duration-150 peer-valid:left-3 peer-valid:top-0 peer-valid:text-[#4070f4] peer-focus:top-0 peer-focus:text-[#4070f4]"
                     >
                       Password
                     </label>
                     <p
-                      className=" my-auto text-pure-greys-200 "
+                      className="text-gray-500 absolute right-4 top-1/2 -translate-y-1/2 transform cursor-pointer"
                       onClick={() => setEyeSlash(!eye)}
                     >
-                      {eye ? (
-                        <FaEye className=" ml-[-35px] text-2xl" />
-                      ) : (
-                        <FaEyeSlash className=" ml-[-35px] text-2xl" />
-                      )}
+                      {eye ? <FaEye /> : <FaEyeSlash />}
                     </p>
                   </div>
                 </div>
+
                 <button
-                  className=" mt-7 w-full  rounded-full border-2 border-blue-600 bg-richblue-5 px-9 py-2 text-lg  font-semibold text-richblack-900 transition-all duration-300  hover:scale-105 hover:bg-richblue-50"
+                  className="mt-7 w-full rounded-full border-2 border-blue-600 bg-richblue-5 px-9 py-2 text-sm font-semibold text-richblack-900 transition-all duration-300 hover:scale-105 hover:bg-richblue-50 md:text-lg"
                   type="submit"
+                  disabled={loading}
                 >
-                  Login
+                  {loading ? "Loading..." : "Login"}
                 </button>
+
                 <Link
                   to="/forgot-password"
-                  className=" px-1 py-2 font-semibold text-blue-300"
+                  className="mt-4 block text-center font-semibold text-blue-300 hover:underline md:text-left"
                 >
-                  Forgot Password?{" "}
+                  Forgot Password?
                 </Link>
-                <p className=" mt-7">
-                  Dont have an account{" "}
-                  <span className=" cursor-pointer font-extrabold text-blue-300">
-                    <Link to="/signup"> Signup</Link>
+
+                <p className="mt-7 text-center md:text-left">
+                  Don’t have an account?{" "}
+                  <span className="font-extrabold text-blue-100">
+                    <Link to="/signup">Signup</Link>
                   </span>
                 </p>
               </div>

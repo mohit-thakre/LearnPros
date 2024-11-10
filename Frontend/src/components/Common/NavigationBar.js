@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react"
 import { FaAngleDown, FaCartArrowDown } from "react-icons/fa"
+import { ImCross } from "react-icons/im"
 import { LuUserCircle2 } from "react-icons/lu"
 import { MdOutlineSpaceDashboard } from "react-icons/md"
+import { TiThMenu } from "react-icons/ti"
 import { useSelector } from "react-redux"
 import { Link, useLocation } from "react-router-dom"
 
@@ -24,6 +26,13 @@ const NavigationBar = () => {
   const [categoryLink1, setCategoryLink1] = useState([])
   const [isHovered, setIsHovered] = useState(false)
   const [isHovered1, setIsHovered1] = useState(false)
+  const [mobileMenu, setMobileMenu] = useState(false)
+
+  const [isNotesOpen, setIsNotesOpen] = useState(false)
+  const [isCatalogOpen, setIsCatalogOpen] = useState(false)
+
+  const toggleMobileMenu = () => setMobileMenu(!mobileMenu)
+
   const location = useLocation()
 
   const fetchCategories = async () => {
@@ -75,7 +84,7 @@ const NavigationBar = () => {
         </Link>
       </div>
 
-      <div className="flex gap-5 text-[17px] font-medium">
+      <div className="hidden gap-5 text-[17px] font-medium lg:flex">
         {NavbarLinks.map((item, index) => (
           <div key={index}>
             {item.title === "Notes" ? (
@@ -208,7 +217,7 @@ const NavigationBar = () => {
 
       <div>
         {token === null ? (
-          <div className="border-x border-richblack-700">
+          <div className="hidden border-x border-richblack-700 lg:flex">
             <Link to="/login">
               <button className="mx-4 rounded-full  bg-blue-200 px-9 py-2 text-xl font-bold transition-all duration-300 hover:scale-105 hover:bg-richblack-900">
                 Login
@@ -216,7 +225,7 @@ const NavigationBar = () => {
             </Link>
           </div>
         ) : (
-          <div className=" flex items-center justify-around">
+          <div className=" hidden items-center justify-around lg:flex">
             {user && user?.accountType == ACCOUNT_TYPE.STUDENT ? (
               <Link to="/dashboard/cart">
                 <button className="mx-4 text-3xl transition-all duration-300 hover:scale-125 hover:bg-richblack-900">
@@ -240,6 +249,153 @@ const NavigationBar = () => {
                 ></img>
               </button>
             </Link>
+          </div>
+        )}
+      </div>
+
+      <div className="relative text-4xl lg:hidden">
+        <button onClick={toggleMobileMenu}>
+          {mobileMenu ? <ImCross className=" text-3xl" /> : <TiThMenu />}
+        </button>
+
+        {mobileMenu && (
+          <div className="fixed inset-0 z-[1000] mt-20 flex w-full items-center justify-center bg-opacity-75 backdrop-blur-xl transition-all duration-300">
+            <div className="flex w-3/4 max-w-xs flex-col items-center justify-center gap-6 rounded-lg p-4 shadow-lg">
+              {NavbarLinks.map((item, index) => (
+                <div key={index} className="w-full">
+                  {item.title === "Notes" ? (
+                    <div
+                      onClick={() => setIsNotesOpen(!isNotesOpen)}
+                      className={`relative w-full px-2 py-2 text-center text-lg font-bold capitalize text-white shadow-xl ${
+                        activeBar === item.title ? "text-yellow-50" : ""
+                      }`}
+                    >
+                      <div className="flex items-center justify-center gap-1">
+                        <span>{item.title}</span>
+                        <FaAngleDown />
+                      </div>
+                      {isNotesOpen && (
+                        <div className="absolute z-30 mt-2 w-[200px] rounded-xl bg-white px-4 py-2 text-black">
+                          {categoryLink1.length > 0 ? (
+                            categoryLink1.map((Item, index) => (
+                              <Link
+                                key={index}
+                                to={`/notes/${Item.name.replace(/\s+/g, "-")}`}
+                                className="block rounded-lg border-yellow-200 px-4 py-2 text-center hover:border-2"
+                                onClick={() => {
+                                  setActiveBar("Notes")
+                                  setMobileMenu(false)
+                                }}
+                              >
+                                {Item.name}
+                              </Link>
+                            ))
+                          ) : (
+                            <p className="text-center">
+                              No categories available
+                            </p>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  ) : item.title === "Catalog" ? (
+                    <div
+                      onClick={() => setIsCatalogOpen(!isCatalogOpen)}
+                      className={`relative w-full px-2 py-2 text-center text-lg font-bold capitalize text-white shadow-xl ${
+                        activeBar === item.title ? "text-yellow-50" : ""
+                      }`}
+                    >
+                      <div className="flex items-center justify-center gap-1">
+                        <span>{item.title}</span>
+                        <FaAngleDown />
+                      </div>
+                      {isCatalogOpen && (
+                        <div className="absolute z-30 mt-2 w-[200px] rounded-xl bg-white px-4 py-2 text-black">
+                          {categoryLink.length > 0 ? (
+                            categoryLink.map((Item, index) => (
+                              <Link
+                                key={index}
+                                to={`/catalog/${Item.name.replace(
+                                  /\s+/g,
+                                  "-"
+                                )}`}
+                                className="block rounded-lg border-yellow-200 px-4 py-2 text-center hover:border-2"
+                                onClick={() => {
+                                  setActiveBar("Catalog")
+                                  setMobileMenu(false)
+                                }}
+                              >
+                                {Item.name}
+                              </Link>
+                            ))
+                          ) : (
+                            <p className="text-center">
+                              No categories available
+                            </p>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    <Link
+                      to={item.path}
+                      onClick={() => {
+                        handleActiveBar(item.title)
+                        setMobileMenu(false)
+                      }}
+                      className="block w-full px-2 py-2 text-center text-lg font-bold capitalize text-white shadow-xl"
+                    >
+                      <span
+                        className={`cursor-pointer ${
+                          activeBar === item.title ? "text-yellow-50" : ""
+                        }`}
+                      >
+                        {item.title}
+                      </span>
+                    </Link>
+                  )}
+                </div>
+              ))}
+              {token === null ? (
+                <Link to="/login" onClick={() => setMobileMenu(false)}>
+                  <button className="mx-4 rounded-full bg-blue-200 px-9 py-2 text-xl font-bold transition-all duration-300 hover:scale-105 hover:bg-richblack-900">
+                    Login
+                  </button>
+                </Link>
+              ) : (
+                <div className="flex flex-col items-center justify-around gap-3">
+                  {user && user?.accountType == ACCOUNT_TYPE.STUDENT ? (
+                    <Link to="/dashboard/cart">
+                      <button className="mx-4 text-3xl transition-all duration-300 hover:scale-125 hover:bg-richblack-900">
+                        <FaCartArrowDown />
+                      </button>
+                    </Link>
+                  ) : (
+                    <Link to="/dashboard/instructor">
+                      <button
+                        onClick={() => {
+                          setMobileMenu(false)
+                        }}
+                        className=" rounded-full border-b-2 border-r-2 bg-richblack-800 px-6 py-3 text-lg font-bold text-yellow-25 transition-all duration-300 hover:scale-105 hover:bg-richblack-900 sm:w-auto sm:px-9 sm:py-4 sm:text-xl"
+                      >
+                        Dashboard
+                      </button>
+                    </Link>
+                  )}
+
+                  <Link to="/dashboard/my-profile">
+                    <button
+                      onClick={() => {
+                        setMobileMenu(false)
+                      }}
+                      className=" rounded-full border-b-2 border-r-2 bg-richblack-800 px-6 py-3 text-lg font-bold text-caribbeangreen-300 transition-all duration-300 hover:scale-105 hover:bg-richblack-900 sm:w-auto sm:px-9 sm:py-4 sm:text-xl"
+                    >
+                      MyProfile
+                    </button>
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
         )}
       </div>

@@ -16,37 +16,38 @@ function Home() {
     <div>
 
  <section>
-        <div className=" w-full min-h-screen flex justify-center items-center bg-richblack-900 text-white ">
-          <div className=" w-[45%]">
-            <h1 className=" font-extrabold text-5xl">
+        <div className=" w-full min-h-screen flex flex-col lg:flex-row flex-wrap justify-center items-center bg-richblack-900 text-white ">
+          <div className="w-[100%] px-4 lg:px-0 text-center lg:text-left lg:mt-0 mt-14 lg:w-[45%]">
+            <h1 className=" font-extrabold text-4xl lg:text-5xl">
               Crack the Code<br></br> to Success with{" "}
               <span className=" text-pink-200"> LearnPros</span>
             </h1>
-            <h2 className=" font-semibold text-xl text-richblack-200 py-4">
+            <h2 className=" font-semibold text-lg lg:text-xl text-richblack-200 py-4">
               Elevate your programming skills, solve challenges,
               <br /> and unlock the world of coding possibilities.
             </h2>
 
-            <div className=" w-full flex flex-row gap-5 my-6">
-              <button className="font-bold flex justify-between gap-2 items-center px-9 py-4 border-r-[3px] border-b-[3px] border-pure-greys-50 rounded-full text-xl text-richblack-800 bg-yellow-50 transition-all duration-300 hover:scale-105 hover:bg-yellow-200">
-                {" "}
-                <FaCode className=" text-2xl" />
-                <Link to="/catalog/view-course"> View Course</Link>
-               
-              </button>
-              <button className="  font-bold px-9 py-4 border-b-2 border-r-2 bg-richblack-800  transition-all duration-300 hover:scale-105 hover:bg-richblack-900  rounded-full text-xl">
-                <Link to="/contact">Let's Connect</Link>
-              </button>
-            </div>
-          <button className="font-bold px-20 py-3 border-b-[3px] border-pure-greys-500 rounded-full text-xl flex justify-center items-center gap-2 transition-all duration-300 bg-richblack-800 hover:bg-richblack-900">
-  <Link to="/login" className="flex items-center gap-2">
+           <div className="w-full flex flex-col sm:flex-row gap-5 my-6 items-center">
+  <button className="w-[60%] sm:w-auto font-bold flex justify-center items-center gap-2 py-3 sm:py-4 px-6 sm:px-9 border-r-[3px] border-b-[3px] border-pure-greys-50 rounded-full text-lg sm:text-xl text-richblack-800 bg-yellow-50 transition-all duration-300 hover:scale-105 hover:bg-yellow-200">
+    <FaCode className="text-2xl" />
+    <Link to="/catalog/view-course">View Course</Link>
+  </button>
+
+  <button className="w-[60%] sm:w-auto font-bold px-6 sm:px-9 py-3 sm:py-4 border-b-2 border-r-2 bg-richblack-800 transition-all duration-300 hover:scale-105 hover:bg-richblack-900 rounded-full text-lg sm:text-xl">
+    <Link to="/contact">Let's Connect</Link>
+  </button>
+</div>
+ <div className="w-full flex flex-col sm:flex-row gap-5 my-6 items-center">
+          <button className="font-bold w-full lg:w-auto lg:px-20 py-4 lg:py-3 border-b-[3px] border-pure-greys-500 rounded-full text-md lg:text-xl flex justify-center items-center gap-2 transition-all duration-300 bg-richblack-800 hover:bg-richblack-900">
+  <Link to="/login" className="flex items-center gap-1 lg:gap-2">
     <span>Become an Instructor</span>
     <FaArrowRightLong />
   </Link>
 </button>
+</div>
 
           </div>
-          <div className=" w-[40%]">
+          <div className=" w-[100%] mt-4 lg:mt-0 lg:w-[40%]">
             <img className=" " src={mainImage} alt="main imayge"></img>
           </div>
         </div>
@@ -125,8 +126,8 @@ Continue Lesson
 {/* 6 */}
 
 <section>
-        <div className=" w-full min-h-screen flex justify-center items-center bg-richblack-900 text-white ">
-          <div className=" w-[35%]">
+        <div className=" w-full min-h-screen flex flex-col lg:flex-row text-center lg:text-left px-2 lg:px-0 justify-center items-center bg-richblack-900 text-white ">
+          <div className="w-full lg:w-[35%]">
             <h1 className=" font-extrabold text-4xl">
               <span className=" text-pink-200">Unlock Guidance</span> <br />{" "}
               Become a Mentor & Guide Unstoppable
@@ -137,13 +138,14 @@ Continue Lesson
             </h2>
 
            <Link to="/login">
-            <button className="font-bold px-20 py-3 border-b-[3px] border-pink-400 rounded-full text-2xl flex justify-center items-center transition-all duration-300 bg-richblack-800 hover:bg-richblack-900">
-              Become an Instructor
-              <GoArrowUpRight className="ml-2 text-3xl p-1 rounded-full text-black bg-white" />
-            </button>
+          <button className="w-full lg:w-auto my-5 lg:my:0 font-bold px-8 py-2 md:px-20 md:py-3 border-b-[3px] border-pink-400 rounded-full text-lg md:text-2xl flex justify-center items-center transition-all duration-300 bg-richblack-800 hover:bg-richblack-900">
+  Become an Instructor
+  <GoArrowUpRight className="ml-2 text-xl md:text-3xl p-1 rounded-full text-black bg-white" />
+</button>
+
             </Link>
           </div>
-          <div className=" w-[40%]">
+          <div className="w-full lg:w-[40%]">
             <img className=" " src={mainImage1} alt="main imayge"></img>
           </div>
         </div>
@@ -154,7 +156,7 @@ Continue Lesson
       
         
          <div className="relative mx-auto my-20 flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 text-white">
-        <h1 className="text-center text-4xl pb-5 text-white font-semibold mt-8">
+        <h1 className="text-center text-4xl pb-5 text-white font-semibold lg:mt-8">
           Reviews from other learners
         </h1>
         <div className="w-full p-6 bg-gradient-to-r from-richblack-900 via-caribbeangreen-800 to-richblack-900  shadow-2xl">
