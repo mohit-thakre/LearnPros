@@ -41,12 +41,10 @@ const NavigationBar = () => {
       const response1 = await fetchNotesCatagory()
       if (response1) {
         setCategoryLink1(response1)
-        console.log("===>===>REd", response1)
       }
       setCategoryLink(response.data.data)
-      console.log("===>===>cat", response.data.data)
     } catch (error) {
-      console.log(error, "nav bar")
+      // console.log(error, "nav bar")
     }
   }
 
@@ -113,9 +111,9 @@ const NavigationBar = () => {
                         backgroundColor: "#f0f0f0",
                       }}
                     ></div>
-                    <div className=" absolute z-30 flex w-[200px]  translate-y-[-20px]  flex-col rounded-xl p-6  px-4 py-2 text-black">
+                    <div className=" absolute z-30 flex w-[300px]  translate-y-[-20px]  flex-col rounded-xl p-6  px-4 py-2 text-black">
                       <div
-                        className="absolute z-30 flex  w-[200px] flex-col rounded-xl bg-white px-4 py-2 text-black"
+                        className="footer3 absolute z-30 flex  w-[300px] flex-col rounded-xl bg-white px-4 py-2 text-black"
                         style={{
                           left: "50%",
                           transform: "translateX(-50%)",
@@ -128,7 +126,7 @@ const NavigationBar = () => {
                             <Link
                               key={index}
                               to={`/notes/${Item.name.replace(/\s+/g, "-")}`}
-                              className="rounded-lg border-yellow-200 px-4 py-2 text-center hover:border-2"
+                              className="footer my-1 block rounded-lg border border-richblack-600 px-4 py-2 text-center text-white hover:border-2 hover:border-yellow-200"
                               onClick={() => setActiveBar("Catalog")}
                             >
                               {Item.name}
@@ -171,9 +169,9 @@ const NavigationBar = () => {
                         backgroundColor: "#f0f0f0",
                       }}
                     ></div>
-                    <div className=" absolute z-30 flex w-[200px]  translate-y-[-20px]  flex-col rounded-xl p-6  px-4 py-2 text-black">
+                    <div className=" absolute z-30 flex w-[300px]  translate-y-[-20px]  flex-col rounded-xl p-6  px-4 py-2 text-black">
                       <div
-                        className="absolute z-30 flex  w-[200px] flex-col rounded-xl bg-white px-4 py-2 text-black"
+                        className="footer3 absolute z-30 flex  w-[300px] flex-col rounded-xl bg-white px-4 py-2 text-black"
                         style={{
                           left: "50%",
                           transform: "translateX(-50%)",
@@ -186,7 +184,7 @@ const NavigationBar = () => {
                             <Link
                               key={index}
                               to={`/catalog/${Item.name.replace(/\s+/g, "-")}`}
-                              className="rounded-lg border-yellow-200 px-4 py-2 text-center hover:border-2"
+                              className="footer my-1 block rounded-lg border border-richblack-600 px-4 py-2 text-center text-white hover:border-2 hover:border-yellow-200"
                               onClick={() => setActiveBar("Catalog")}
                             >
                               {Item.name}
@@ -259,13 +257,23 @@ const NavigationBar = () => {
         </button>
 
         {mobileMenu && (
-          <div className="fixed inset-0 z-[1000] mt-20 flex w-full items-center justify-center bg-opacity-75 backdrop-blur-xl transition-all duration-300">
+          <div className="fixed inset-0 z-[1000] mt-0 flex min-h-screen w-full items-center justify-center overflow-scroll bg-opacity-75 backdrop-blur-xl transition-all duration-300">
+            <h1
+              onClick={toggleMobileMenu}
+              className="footer absolute left-5 top-3 flex items-center justify-center gap-2 rounded-xl bg-richblack-700 p-2 text-lg font-bold"
+            >
+              close menu
+              <ImCross className=" rounded-full text-lg" />
+            </h1>
             <div className="flex w-3/4 max-w-xs flex-col items-center justify-center gap-6 rounded-lg p-4 shadow-lg">
               {NavbarLinks.map((item, index) => (
                 <div key={index} className="w-full">
                   {item.title === "Notes" ? (
                     <div
-                      onClick={() => setIsNotesOpen(!isNotesOpen)}
+                      onClick={() => {
+                        setIsNotesOpen(!isNotesOpen)
+                        setIsCatalogOpen(false)
+                      }}
                       className={`relative w-full px-2 py-2 text-center text-lg font-bold capitalize text-white shadow-xl ${
                         activeBar === item.title ? "text-yellow-50" : ""
                       }`}
@@ -300,7 +308,10 @@ const NavigationBar = () => {
                     </div>
                   ) : item.title === "Catalog" ? (
                     <div
-                      onClick={() => setIsCatalogOpen(!isCatalogOpen)}
+                      onClick={() => {
+                        setIsCatalogOpen(!isCatalogOpen)
+                        setIsNotesOpen(false)
+                      }}
                       className={`relative w-full px-2 py-2 text-center text-lg font-bold capitalize text-white shadow-xl ${
                         activeBar === item.title ? "text-yellow-50" : ""
                       }`}
@@ -310,7 +321,7 @@ const NavigationBar = () => {
                         <FaAngleDown />
                       </div>
                       {isCatalogOpen && (
-                        <div className="absolute z-30 mt-2 w-[200px] rounded-xl bg-white px-4 py-2 text-black">
+                        <div className="footer2 absolute z-30 mt-2 w-[200px] rounded-xl bg-white px-4 py-2 text-black">
                           {categoryLink.length > 0 ? (
                             categoryLink.map((Item, index) => (
                               <Link
@@ -319,7 +330,7 @@ const NavigationBar = () => {
                                   /\s+/g,
                                   "-"
                                 )}`}
-                                className="block rounded-lg border-yellow-200 px-4 py-2 text-center hover:border-2"
+                                className="footer my-1 block rounded-lg border border-richblack-600 px-4 py-2 text-center text-white hover:border-2 hover:border-yellow-200"
                                 onClick={() => {
                                   setActiveBar("Catalog")
                                   setMobileMenu(false)
@@ -366,8 +377,9 @@ const NavigationBar = () => {
                 <div className="flex flex-col items-center justify-around gap-3">
                   {user && user?.accountType == ACCOUNT_TYPE.STUDENT ? (
                     <Link to="/dashboard/cart">
-                      <button className="mx-4 text-3xl transition-all duration-300 hover:scale-125 hover:bg-richblack-900">
-                        <FaCartArrowDown />
+                      <button className="flex w-full items-center justify-center gap-2 px-2 py-2 text-center text-lg font-bold capitalize text-white shadow-xl">
+                        Cart{" "}
+                        <FaCartArrowDown className="  text-caribbeangreen-100" />
                       </button>
                     </Link>
                   ) : (

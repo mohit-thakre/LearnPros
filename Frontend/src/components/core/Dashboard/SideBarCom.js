@@ -29,7 +29,7 @@ export default function SideBarCom() {
     <>
       <div className=" relative">
         <button
-          className="  hover:bg-gray-700 absolute left-0 z-40  flex items-center  justify-center rounded-full bg-richblack-600 p-3 text-white shadow-lg transition-colors lg:hidden"
+          className="  hover:bg-gray-700 absolute left-0 z-30  flex items-center  justify-center rounded-full bg-richblack-600 p-3 text-white shadow-lg transition-colors lg:hidden"
           onClick={() => {
             setMobileMenu(!mobileMenu)
             setDesktopClass(!desktopClass)
@@ -49,10 +49,10 @@ export default function SideBarCom() {
           className={`${
             desktopClass
               ? "hidden lg:flex"
-              : "bg-gray-900 fixed inset-0 top-20 z-30 flex bg-opacity-75 backdrop-blur-[2px] transition-all duration-300 ease-in-out"
+              : "bg-gray-900 fixed inset-0 top-20 z-10 flex bg-opacity-75 backdrop-blur-[2px] transition-all duration-300 ease-in-out"
           }`}
         >
-          <div className="flex h-[calc(100vh-3.5rem)] min-w-[220px] flex-col border-r-[1px] border-r-richblack-700 bg-richblack-800 py-10">
+          <div className="footer flex h-[calc(100vh-3.5rem)] min-w-[220px] flex-col border-r-[1px] border-r-richblack-700 bg-richblack-700  py-10">
             <div className="flex flex-col">
               {ACCOUNT_TYPE &&
                 sidebarLinks.map((link) => {

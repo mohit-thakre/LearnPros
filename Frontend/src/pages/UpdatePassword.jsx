@@ -31,7 +31,7 @@ function UpdatePassword() {
 
   const handleOnSubmit = (e) => {
     e.preventDefault()
-    console.log(id)
+    // console.log(id)
     dispatch(resetPassword(password, confirmPassword, id, navigate))
   }
 

@@ -43,12 +43,18 @@ const location = useLocation()
     <div>
       <div className="mb-14 flex items-center justify-between">
         <h1 className="text-3xl font-medium text-richblack-5">{location.pathname==="/dashboard/my-notes" ?"My Notes" :"My Courses"}</h1>
-        <IconBtn
+        {location.pathname==="/dashboard/my-notes" ? <IconBtn
+          text="Add Notes"
+          onclick={() => navigate("/dashboard/add-notes")}
+        >
+          <VscAdd />
+        </IconBtn> : <IconBtn
           text="Add Course"
           onclick={() => navigate("/dashboard/add-course")}
         >
           <VscAdd />
-        </IconBtn>
+        </IconBtn>}
+       
       </div>
       {
         location.pathname==="/dashboard/my-notes" ?

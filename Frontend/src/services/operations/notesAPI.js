@@ -23,15 +23,15 @@ export const createNotes = async (data, token) => {
       "Content-Type": "multipart/form-data",
       Authorization: `Bearer ${token}`,
     })
-    console.log("CREATE NOTES API RESPONSE............", response)
+    // console.log("CREATE NOTES API RESPONSE............", response)
     if (!response?.data?.success) {
       throw new Error("Could Not Add NOTES Details")
     }
-    toast.success("nOTES Details Added Successfully")
+    toast.success("NOTES Details Added Successfully")
     result = response?.data?.data
   } catch (error) {
-    console.log("CREATE NOTES API ERROR............", error)
-    toast.error(error.message)
+    // console.log("CREATE NOTES API ERROR............", error)
+    toast.error(error?.response?.data?.message)
   }
   toast.dismiss(toastID)
   return result
@@ -45,15 +45,15 @@ export const editNotes = async (data, token) => {
       "Content-Type": "multipart/form-data",
       Authorization: `Bearer ${token}`,
     })
-    console.log("EDIT NOTES API RESPONSE............", response)
+    // console.log("EDIT NOTES API RESPONSE............", response)
     if (!response?.data?.success) {
       throw new Error("Could Not Update NOTES Details")
     }
     toast.success("NOTES UPDATED Successfully")
     result = response?.data?.data
   } catch (error) {
-    console.log("UPDATE NOTES API ERROR............", error)
-    toast.error(error.message)
+    // console.log("UPDATE NOTES API ERROR............", error)
+    toast.error(error?.response?.data?.message)
   }
   toast.dismiss(toastID)
   return result
@@ -67,15 +67,15 @@ export const deleteNotes = async (data, token) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     })
-    console.log("delete NOTES API RESPONSE............", response)
+    // console.log("delete NOTES API RESPONSE............", response)
     if (!response?.data?.success) {
       throw new Error("Could Not delete NOTES Details")
     }
     toast.success("NOTES DELETED Successfully")
     result = response?.data?.data
   } catch (error) {
-    console.log("delete NOTES API ERROR............", error)
-    toast.error(error.message)
+    // console.log("delete NOTES API ERROR............", error)
+    toast.error(error?.response?.data?.message)
   }
   toast.dismiss(toastID)
   return result
@@ -89,15 +89,15 @@ export const getNotes = async (token) => {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     })
-    console.log("GET NOTES API RESPONSE............", response)
+    // console.log("GET NOTES API RESPONSE............", response)
     if (!response?.data?.success) {
       throw new Error("Could Not delete NOTES Details")
     }
     toast.success("NOTES FETCHED Successfully")
     result = response?.data?.data
   } catch (error) {
-    console.log("GET NOTES API ERROR............", error)
-    toast.error(error.message)
+    // console.log("GET NOTES API ERROR............", error)
+    toast.error(error?.response?.data?.message)
   }
   toast.dismiss(toastID)
   return result
@@ -113,8 +113,8 @@ export const fetchNotesCatagory = async () => {
     }
     result = response?.data?.data
   } catch (error) {
-    console.log("NOTES_CATEGORY_API API ERROR............", error)
-    toast.error(error.message)
+    // console.log("NOTES_CATEGORY_API API ERROR............", error)
+    toast.error(error?.response?.data?.message)
   }
   toast.dismiss(toastID)
   return result
@@ -132,14 +132,14 @@ export const fetchNotesCatalogDetails = async (data, token) => {
         Authorization: `Bearer ${token}`,
       }
     )
-    console.log("NOTES_FULL_DETAILS_API API RESPONSE............", response)
+    // console.log("NOTES_FULL_DETAILS_API API RESPONSE............", response)
 
     if (!response.data.success) {
       throw new Error(response.data.message)
     }
     result = response.data.data
   } catch (error) {
-    console.log("notes_FULL_DETAILS_API API ERROR............", error)
+    // console.log("notes_FULL_DETAILS_API API ERROR............", error)
     result = error.response.data
   }
   toast.dismiss(toastID)
@@ -158,20 +158,19 @@ export const fetchInstructorNotes = async (token) => {
         Authorization: `Bearer ${token}`,
       }
     )
-    console.log(
-      "INSTRUCTOR_NOTES_FULL_DETAILS_API API RESPONSE............",
-      response
-    )
+    // console.log("INSTRUCTOR_NOTES_FULL_DETAILS_API API RESPONSE............",
+    //   response
+    // )
 
     if (!response.data.success) {
       throw new Error(response.data.message)
     }
     result = response?.data?.data
   } catch (error) {
-    console.log(
-      "INSTRUCTOR_NOTES_FULL_DETAILS_API API RESPONSE............",
-      error
-    )
+    // console.log(
+    //   "INSTRUCTOR_NOTES_FULL_DETAILS_API API RESPONSE............",
+    //   error
+    // )
     result = error.response.data
   }
   toast.dismiss(toastID)
@@ -191,7 +190,7 @@ export const fetchSingleNotes = async (data, token) => {
     result = response?.data?.data
     toast.success("NOTES FOUND")
   } catch (error) {
-    console.log("_NOTES_FULL_DETAILS_API API RESPONSE............", error)
+    // console.log("_NOTES_FULL_DETAILS_API API RESPONSE............", error)
     result = error.response?.data
   }
   toast.dismiss(toastID)
@@ -210,7 +209,7 @@ export const fetchFullDetailsNotes = async (data, token) => {
     result = response?.data?.data
     toast.success("NOTES FOUND")
   } catch (error) {
-    console.log("GET_NOTES_FULL_DETAILS_API API RESPONSE............", error)
+    // console.log("GET_NOTES_FULL_DETAILS_API API RESPONSE............", error)
     result = error.response?.data
   }
   toast.dismiss(toastID)

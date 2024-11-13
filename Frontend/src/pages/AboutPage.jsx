@@ -11,7 +11,7 @@ import step4 from "../assets/Images/step4.webp"
 import step5 from "../assets/Images/step5.webp"
 import ReviewSlider from "../components/Common/ReviewSlider"
 import { CountryCode } from "../data/countrycode"
-import FooterPage from "../pages/FooterPage"
+import FooterPage from "./FooterPage"
 import { contactUS } from "../services/operations/contactus"
 import AboutBox1Tem from "./AboutPage/AboutBox1Tem"
 import AboutBox2 from "./AboutPage/AboutBox2"
@@ -38,13 +38,13 @@ const AboutPage = () => {
       message: data.message,
     }
 
-    console.log("Form Data - ", data1)
+    // // console.log("Form Data - ", data1)
     try {
       setLoading(true)
       dispatch(contactUS(data1))
       setLoading(false)
     } catch (error) {
-      console.log("ERROR MESSAGE - ", error.message)
+      // // console.log("ERROR MESSAGE - ", error.message)
       setLoading(false)
     }
   }

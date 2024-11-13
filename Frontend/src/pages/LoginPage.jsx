@@ -29,7 +29,6 @@ const LoginPage = () => {
     setLoading(true)
     try {
       dispatch(login(form, navigate))
-      toast.success("Login successful!")
     } catch (error) {
       toast.error("Failed to login. Please try again.")
     } finally {

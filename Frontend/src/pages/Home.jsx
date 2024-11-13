@@ -30,11 +30,11 @@ function Home() {
            <div className="w-full flex flex-col sm:flex-row gap-5 my-6 items-center">
   <button className="w-[60%] sm:w-auto font-bold flex justify-center items-center gap-2 py-3 sm:py-4 px-6 sm:px-9 border-r-[3px] border-b-[3px] border-pure-greys-50 rounded-full text-lg sm:text-xl text-richblack-800 bg-yellow-50 transition-all duration-300 hover:scale-105 hover:bg-yellow-200">
     <FaCode className="text-2xl" />
-    <Link to="/catalog/view-course">View Course</Link>
+   <Link to="/notescategory/notes">View Notes</Link>
   </button>
 
   <button className="w-[60%] sm:w-auto font-bold px-6 sm:px-9 py-3 sm:py-4 border-b-2 border-r-2 bg-richblack-800 transition-all duration-300 hover:scale-105 hover:bg-richblack-900 rounded-full text-lg sm:text-xl">
-    <Link to="/contact">Let's Connect</Link>
+     <Link to="/coursescategory/courses">View Course</Link>
   </button>
 </div>
  <div className="w-full flex flex-col sm:flex-row gap-5 my-6 items-center">

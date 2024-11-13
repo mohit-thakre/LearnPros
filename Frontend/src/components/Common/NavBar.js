@@ -25,7 +25,7 @@ const NavBar = () => {
       const response = await apiConnector("GET", category.showCategory)
       setCategoryLink(response.data.data)
     } catch (error) {
-      console.log(error, "nav bar")
+      // console.log(error, "nav bar")
     }
   }
 

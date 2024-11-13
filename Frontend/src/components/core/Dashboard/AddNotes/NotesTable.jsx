@@ -105,17 +105,17 @@ export default function NotesTable({ notes, setNotes }) {
                     />
                
                   <div className="flex flex-col justify-between">
-                    <p className="text-lg font-semibold text-richblack-5">
+                    <p className="text-lg font-semibold uppercase text-richblack-5">
                       {note.NotesName}
                     </p>
                    <p className="text-xs text-richblack-300">
-                      category: {note.category.name}
+                       <span className=" font-bold">category:</span> {note?.category?.name}
                     </p>
-                    <p className="text-xs text-richblack-300">
-                      Description: {note.NotesDescription.substr(0, TRUNCATE_LENGTH)}
+                    <p className="text-xs text-richblack-300 lowercase">
+                     <span className=" font-bold">Description: </span> {note.NotesDescription.substr(0, TRUNCATE_LENGTH)}...
                     </p>
                     <p className="text-[12px] text-white">
-                      Created: {formatDate(note.createdAt)}
+                      <span className=" font-bold">Created:</span> {formatDate(note.createdAt)}
                     </p>
                     <p className="flex w-fit flex-row items-center gap-2 rounded-full bg-richblack-700 px-2 py-[2px] text-[12px] font-medium text-yellow-100">
                       <div className="flex h-3 w-3 items-center justify-center rounded-full bg-yellow-100 text-richblack-700">

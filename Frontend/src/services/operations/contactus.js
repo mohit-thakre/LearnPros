@@ -11,13 +11,13 @@ export function contactUS(form) {
         contactusEndpoint.CONTACT_US_API,
         form
       )
-      console.log(response)
+      // console.log(response)
       if (!response.data.success) {
         throw new Error(response.data.message)
       }
       toast.success("Message Sent Successful")
     } catch (error) {
-      console.log("contact us............", error)
+      // console.log("contact us............", error)
       toast.error("Failed To Send Message")
     }
   }

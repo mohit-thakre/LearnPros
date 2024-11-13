@@ -3,13 +3,14 @@ import { useForm } from 'react-hook-form'
 import { createNotes, editNotes, fetchNotesCatagory } from '../../../../services/operations/notesAPI'
 import Upload from '../AddCourse/Upload'
 import IconBtn from '../../../Common/IconBtn'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import UploadPdf from './UploadPdf'
 
 const RenderNotes = ({ notes = null }) => {
   const [loading, setLoading] = useState(false)
   const [notesCategories, setNotesCategories] = useState([])
   const { notesId } = useParams()
+  const navigate = useNavigate()
   const fetchCategories = async () => {
     try {
       const response1 = await fetchNotesCatagory()
@@ -37,6 +38,7 @@ const RenderNotes = ({ notes = null }) => {
   const token = localStorage.getItem("token")
 
   const onSubmit = async (data) => {
+    setLoading(true)
     const formData = new FormData()
     formData.append("NotesName", data.NotesName)
     formData.append("NotesDescription", data.NotesDescription)
@@ -54,6 +56,8 @@ const RenderNotes = ({ notes = null }) => {
     else{
 const response = await createNotes(formData, token)
     }
+    setLoading(false)
+    navigate("/dashboard/my-notes")
   }
 
   return (

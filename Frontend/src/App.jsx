@@ -48,7 +48,8 @@ import EditNotes from "./components/core/Dashboard/AddNotes/EditNotes"
 import ScrollToTop from "./components/core/ScrollToTop"
 import Privacy from "./pages/Privacy"
 import Terms from "./pages/Terms"
-
+import NotesCategoryPage from "./pages/NotesCategoryPage"
+import CoursesCategorypage from "./pages/CoursesCategorypage"
 
 function App() {
   const dispatch = useDispatch()
@@ -66,7 +67,10 @@ function App() {
   return (
     <div className="flex min-h-screen w-screen flex-col bg-richblack-900 font-inter">
     
-     <NavigationBar/>
+
+        <NavigationBar />
+  
+     
         <ScrollToTop/>
       <Routes>
      
@@ -74,12 +78,14 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<Contact />} />
          <Route path="/terms" element={<Terms />} />
+         <Route path="/notescategory/notes" element={<NotesCategoryPage/>}/>
+          <Route path="/coursescategory/courses" element={<CoursesCategorypage/>}/>
         <Route path="/privacy&policy" element={<Privacy />} />
         <Route path="courses/:courseId" element={<CourseDetails />} />
         <Route path="catalog/:catalogName" element={<Catalog />} />
         <Route path="notes/:notesName" element={<NotesCatalog/>} />
         <Route path="/underdevelopment" element={<UnderDevelopmentPage />} />
-        <Route path="/catalog/view-course" element={<UnderDevelopmentPage />} />
+        <Route path="/catalog/view-course" element={<CoursesCategorypage />} />
         <Route path="/category/:courseName" element={<UnderDevelopmentPage />} />
         {/* Open Route - for Only Non Logged in User */}
         <Route

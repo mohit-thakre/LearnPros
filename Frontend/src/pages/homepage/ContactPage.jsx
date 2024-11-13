@@ -21,7 +21,7 @@ const ContactPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log("form data -", form)
+    // console.log("form data -", form)
   }
 
   return (

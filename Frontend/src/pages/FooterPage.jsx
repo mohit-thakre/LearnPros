@@ -6,7 +6,7 @@ import Logo from "../assets/Logo/Logo-Full-Light.png"
 
 const FooterPage = () => {
   return (
-    <div className="w-full bg-gradient-to-t from-caribbeangreen-900 to-richblack-900 p-5 sm:m-0 sm:p-10 lg:mb-20 lg:p-20">
+    <div className="w-full bg-gradient-to-t from-caribbeangreen-900 to-richblack-900 p-5 sm:m-0 sm:p-10  lg:p-20">
       <footer className="flex w-full flex-wrap justify-between gap-10 rounded-2xl border-2 border-caribbeangreen-500 bg-gradient-to-t from-caribbeangreen-800 to-richblack-900 p-5 text-white/60 sm:p-10 lg:flex-nowrap lg:gap-16">
         <div className="flex max-w-sm flex-col gap-5 lg:w-1/3">
           <img

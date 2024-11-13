@@ -200,6 +200,7 @@ export default function CourseInformationForm() {
         <div className="relative">
           <input
             id="coursePrice"
+            type="number"
             placeholder="Enter Course Price"
             {...register("coursePrice", {
               required: true,

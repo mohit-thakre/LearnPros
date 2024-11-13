@@ -30,7 +30,7 @@ const SignupPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log(form)
+    // console.log(form)
     dispatch(sendOtp(form, navigate))
   }
 

@@ -20,4 +20,12 @@ export const NavbarLinks = [
     title: "Contact Us",
     path: "/contact",
   },
+  {
+    title: "Resume Template",
+    path: "/about",
+  },
+  {
+    title: "Roadmaps",
+    path: "/Roadmaps",
+  },
 ]
