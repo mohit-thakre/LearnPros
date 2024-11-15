@@ -19,8 +19,8 @@ const Resetpassword = () => {
     }
 
     try {
-      // console.log("Email submitted for password reset:", password);
-      // console.log(token);
+      // // console.log("Email submitted for password reset:", password);
+      // // console.log(token);
 
       const response = await apiConnector("POST", user.resetpassword, {
         password,
@@ -32,9 +32,9 @@ const Resetpassword = () => {
         return
       }
       toast.success(response.data.message)
-      // console.log(response);
+      // // console.log(response);
     } catch (error) {
-      // console.log("Error:", error);
+      // // console.log("Error:", error);
     }
   }
 

@@ -7,13 +7,13 @@ const Terms = () => {
     <div className="footer1 px-3  bg-gray-900  text-white min-h-screen flex flex-col items-center py-3 lg:py-16">
       <div className="footer py-6 container max-w-4xl px-6 sm:px-10 lg:px-20 bg-gray-800 rounded-lg shadow-lg">
         
-        {/* Header */}
+       
         <div className="flex flex-col items-start gap-3">
           <h1 className="text-4xl font-extrabold py-6 ">Terms & Conditions</h1>
           
         </div>
         
-        {/* Terms and Conditions Sections */}
+      
         <section className="space-y-6 border-t border-gray-700 py-8">
           <h2 className="text-2xl font-semibold text-blue-200">1. Introduction</h2>
           <p className="text-gray-300 leading-relaxed">

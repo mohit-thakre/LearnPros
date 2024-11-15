@@ -38,3 +38,30 @@ exports.uploadPdfToCloudinary = async (file, folder) => {
     throw error;
   }
 };
+
+exports.uploadPdfToCloudinary1 = async (file, folder) => {
+  try {
+    const options = {
+      folder,
+      resource_type: "raw",
+      format: "docx",
+      secure: true,
+    };
+
+    console.log("PDF Upload Options:", options);
+    const response = await cloudinary.uploader.upload(
+      file.tempFilePath,
+      options
+    );
+
+    // Return the secure URL and other response data
+    return {
+      secure_url: response.secure_url,
+      public_id: response.public_id,
+      asset_id: response.asset_id,
+    };
+  } catch (error) {
+    console.error("Error uploading PDF:", error);
+    throw error;
+  }
+};

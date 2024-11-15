@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-const PDFopener = ({ pdfUrl }) => {
+const PDFopener = ({ pdfUrl,resume=false }) => {
   
   const openPDF = () => {
     const newWindow = window.open();
@@ -27,7 +27,7 @@ const PDFopener = ({ pdfUrl }) => {
 
   return (
     <button onClick={openPDF}>
-      Open PDF
+    { resume ? "Download Docx" : "Open PDF" }
     </button>
   );
 };

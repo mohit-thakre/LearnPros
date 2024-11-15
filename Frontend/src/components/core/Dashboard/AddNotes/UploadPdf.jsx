@@ -20,7 +20,7 @@ export default function UploadPdf({
   editData = null,
   defaultValue = null
 }) {
-    const value = "https://res.cloudiny.com/di657jr/image/upload/v173090/codehp/un0isiqqduikwpt.pdf"
+    
   const { course } = useSelector((state) => state.course);
   const [selectedFile, setSelectedFile] = useState(null);
   const [previewSource, setPreviewSource] = useState(

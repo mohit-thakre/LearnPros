@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react"
 import { FaAngleDown, FaCartArrowDown } from "react-icons/fa"
 import { ImCross } from "react-icons/im"
-import { LuUserCircle2 } from "react-icons/lu"
 import { MdOutlineSpaceDashboard } from "react-icons/md"
 import { TiThMenu } from "react-icons/ti"
 import { useSelector } from "react-redux"
 import { Link, useLocation } from "react-router-dom"
 
-import logo from "../../assets/Logo/Logo-Full-Light.png"
-// Add useLocation to track current URL
+import logo from "../../assets/Logo/e-removebg-preview.png"
 import { NavbarLinks } from "../../data/navbar-links"
 import { apiConnector } from "../../services/apiConnector"
 import { categories } from "../../services/apis"
@@ -19,7 +17,7 @@ const NavigationBar = () => {
   const [activeBar, setActiveBar] = useState("Home")
   const { token } = useSelector((state) => state.auth)
   const { user } = useSelector((state) => state.profile)
-  const { totalItems } = useSelector((state) => state.cart)
+
   const avatar = localStorage.getItem("avatar")
 
   const [categoryLink, setCategoryLink] = useState([])
@@ -77,8 +75,11 @@ const NavigationBar = () => {
   return (
     <div className=" z-40 flex h-20 w-full items-center justify-around bg-richblack-900 text-white shadow-sm shadow-caribbeangreen-900">
       <div>
-        <Link to="/">
-          <img src={logo} alt="Logo" />
+        <Link to="/" className=" flex items-end justify-center">
+          <img className=" h-7" src={logo} alt="Logo" />
+          <span className="ml-[-5px] text-[10px] font-bold text-white">
+            .Tech
+          </span>
         </Link>
       </div>
 

@@ -13,6 +13,7 @@ const {
   GET_INSTRUCTOR_NOTES_API,
   GET_SINGLE_NOTES_API,
   GET_FULL_NOTES_DETAILS,
+  FETCH_RESUME_API,
 } = notesEndpoints
 
 export const createNotes = async (data, token) => {
@@ -213,5 +214,21 @@ export const fetchFullDetailsNotes = async (data, token) => {
     result = error.response?.data
   }
   toast.dismiss(toastID)
+  return result
+}
+
+export const getAllResumes = async () => {
+  let result = []
+  try {
+    const response = await apiConnector("GET", FETCH_RESUME_API)
+    if (!response?.data?.success) {
+      throw new Error("Could Not Fetch Resume ")
+    }
+    result = response?.data?.data
+  } catch (error) {
+    console.log("GET_ALL_COURSE_API API ERROR............", error)
+    toast.error(error?.response?.data?.message)
+  }
+
   return result
 }

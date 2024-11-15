@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
+//resume controller
+
+const { resume, getResume, editResume } = require("../controllers/Resume");
+
 const {
   createNotes,
   editNotes,
@@ -28,5 +32,10 @@ router.post("/getNotesCategoryPageDetails", getNotesCategoryPageDetails);
 router.post("/notesCategoryPageDetails", notesCategoryPageDetails);
 router.post("/getSingleCourseDetails", getSingleCourseDetails);
 router.post("/getFullNotesDetails", auth, getFullNotesDetails);
+
+//resume routes
+router.post("/uploadResume", auth, isAdmin, resume);
+router.post("/editResume", auth, isAdmin, resume);
+router.get("/getResume", getResume);
 
 module.exports = router;

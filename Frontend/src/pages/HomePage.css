@@ -122,9 +122,9 @@ box-shadow: 0 15px 25px -4px rgba(0, 0, 0, 0.5), inset 0 -3px 4px -1px rgba(0, 0
 }
 
 .footer3 {
-    background-color: #FFD60A;
+    background-color: #000814;
     background-image:
-        radial-gradient(at 47% 33%, hsl(227, 57%, 21%) 0, transparent 59%),
+        radial-gradient(at 47% 33%, hsl(264, 55%, 44%) 0, transparent 59%),
         radial-gradient(at 82% 65%, #000814 0, transparent 55%);
 }
 .course1 {

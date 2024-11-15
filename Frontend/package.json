@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "@aeternity/aepp-components": "^2.0.15",
+    "@cyntler/react-doc-viewer": "^1.17.0",
     "@ramonak/react-progress-bar": "^5.0.3",
     "@react-pdf/renderer": "^4.0.0",
     "@reduxjs/toolkit": "^1.9.5",
@@ -16,6 +17,7 @@
     "clsx": "^2.1.1",
     "copy-to-clipboard": "^3.3.3",
     "framer-motion": "^11.11.11",
+    "mammoth": "^1.8.0",
     "pdfjs-dist": "^4.8.69",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",

@@ -97,7 +97,7 @@ function Home() {
               online courses
             </h1>
           }
-          subhseading={`Unveil the essence of CodeHelp: a community-driven platform dedicated to empowering coders of all levels. Discover who we are and how we're shaping the future of coding education.`}
+          subhseading={`Unveil the essence of LearnPros: a community-driven platform dedicated to empowering coders of all levels. Discover who we are and how we're shaping the future of coding education.`}
           codeblock1={`import React from 'react';\nimport ReactDOM from 'react-dom';\nimport './App.css';\nimport App from './App';\n\nfunction MyComponent() {\n  return (\n    <div>\n      <h1>Hello World!</h1>\n      <p>This is a paragraph.</p>\n    </div>\n  );\n}\n\nReactDOM.render(<App />, document.getElementById('root'));\n`}
           color1={`#0afbff`}
           btn1={

@@ -53,6 +53,7 @@ export const notesEndpoints = {
   GET_INSTRUCTOR_NOTES_API: BASE_URL + "/notes/getInstructorNotes",
   GET_SINGLE_NOTES_API: BASE_URL + "/notes/getSingleCourseDetails",
   GET_FULL_NOTES_DETAILS: BASE_URL + "/notes/getFullNotesDetails",
+  FETCH_RESUME_API: BASE_URL + "/notes/getResume",
 }
 
 // RATINGS AND REVIEWS
@@ -82,4 +83,8 @@ export const settingsEndpoints = {
   UPDATE_PROFILE_API: BASE_URL + "/profile/updateProfile",
   CHANGE_PASSWORD_API: BASE_URL + "/auth/changepassword",
   DELETE_PROFILE_API: BASE_URL + "/profile/deleteProfile",
+}
+// RESUME API
+export const resumeEndpoints = {
+  FETCH_RESUME_API: BASE_URL + "/notes/getResume",
 }

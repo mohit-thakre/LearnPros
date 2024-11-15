@@ -50,6 +50,7 @@ import Privacy from "./pages/Privacy"
 import Terms from "./pages/Terms"
 import NotesCategoryPage from "./pages/NotesCategoryPage"
 import CoursesCategorypage from "./pages/CoursesCategorypage"
+import ResumePage from "./pages/ResumePage"
 
 function App() {
   const dispatch = useDispatch()
@@ -87,6 +88,8 @@ function App() {
         <Route path="/underdevelopment" element={<UnderDevelopmentPage />} />
         <Route path="/catalog/view-course" element={<CoursesCategorypage />} />
         <Route path="/category/:courseName" element={<UnderDevelopmentPage />} />
+        <Route path="/roadmaps/view" element={<UnderDevelopmentPage/>}/>
+        <Route path="/resume/template" element={<ResumePage/>}/>
         {/* Open Route - for Only Non Logged in User */}
         <Route
           path="login"
