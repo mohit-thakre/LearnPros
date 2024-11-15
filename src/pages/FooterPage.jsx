@@ -40,7 +40,7 @@ const FooterPage = () => {
                 rel="noopener noreferrer"
                 className="text-yellow-300"
               >
-                @Atom_Dev
+                @MTxCEO
               </a>
             </p>
           </div>
@@ -53,6 +53,9 @@ const FooterPage = () => {
           </Link>
           <Link to="/contact" className="hover:text-caribbeangreen-200">
             Improve Us
+          </Link>
+           <Link to="/contact" className="hover:text-caribbeangreen-200">
+            Contact Us
           </Link>
           <Link to="/privacy&policy" className="hover:text-caribbeangreen-200">
             Privacy Policy
@@ -86,12 +89,12 @@ const FooterPage = () => {
             <span>Mail us!</span>
           </div>
           <a
-            href="mailto:mohitthakre1211@gmail.com"
+            href="mailto:learnpros.tech@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-caribbeangreen-200"
           >
-            mohitthakre1211@gmail.com
+            Learnpros.tech@gmail.com
           </a>
         </div>
       </footer>
