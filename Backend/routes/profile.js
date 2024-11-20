@@ -8,6 +8,7 @@ const {
   updateDisplayPicture,
   getEnrolledCourses,
   instructorDashboard,
+  getPurchasedResume,
 } = require("../controllers/profile")
 
 // ********************************************************************************************************
@@ -19,6 +20,7 @@ router.put("/updateProfile", auth, updateProfile)
 router.get("/getUserDetails", auth, getAllUserDetails)
 // Get Enrolled Courses
 router.get("/getEnrolledCourses", auth, getEnrolledCourses)
+router.get("/getPurchasedResume", auth, getPurchasedResume)
 router.put("/updateDisplayPicture", auth, updateDisplayPicture)
 router.get("/instructorDashboard", auth, isInstructor, instructorDashboard)
 

@@ -6,7 +6,7 @@ import { TiThMenu } from "react-icons/ti"
 import { useSelector } from "react-redux"
 import { Link, useLocation } from "react-router-dom"
 
-import logo from "../../assets/Logo/e-removebg-preview.png"
+import logo from "../../assets/Logo/learnpros_dark1.png"
 import { NavbarLinks } from "../../data/navbar-links"
 import { apiConnector } from "../../services/apiConnector"
 import { categories } from "../../services/apis"
@@ -76,9 +76,9 @@ const NavigationBar = () => {
     <div className=" z-40 flex h-20 w-full items-center justify-around bg-richblack-900 text-white shadow-sm shadow-caribbeangreen-900">
       <div>
         <Link to="/" className=" flex items-end justify-center">
-          <img className=" h-7" src={logo} alt="Logo" />
+          <img className=" h-14" src={logo} alt="Logo" />
           <span className="ml-[-5px] text-[10px] font-bold text-white">
-            .Tech
+            {/* .Tech */}
           </span>
         </Link>
       </div>

@@ -2,7 +2,7 @@ import React from "react"
 import { FaRegStar } from "react-icons/fa"
 import { Link } from "react-router-dom"
 
-import Logo from "../assets/Logo/e-removebg-preview.png"
+import Logo from "../assets/Logo/learnpros_dark.png"
 
 const FooterPage = () => {
   return (

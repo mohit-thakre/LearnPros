@@ -18,9 +18,12 @@ export const profileEndpoints = {
 
 // STUDENTS ENDPOINTS
 export const studentEndpoints = {
-  COURSE_PAYMENT_API: BASE_URL + "/payment/capturePayment",
-  COURSE_VERIFY_API: BASE_URL + "/payment/verifyPayment",
+  // COURSE_PAYMENT_API: BASE_URL + "/payment/create-order",
+  // COURSE_VERIFY_API: BASE_URL + "/payment/verify-payment",
   SEND_PAYMENT_SUCCESS_EMAIL_API: BASE_URL + "/payment/sendPaymentSuccessEmail",
+
+  RESUME_PAYMENT_API: BASE_URL + "/payment/create-order",
+  RESUME_VERIFY_API: BASE_URL + "/payment/verify-payment",
 }
 
 // COURSE ENDPOINTS
@@ -54,6 +57,7 @@ export const notesEndpoints = {
   GET_SINGLE_NOTES_API: BASE_URL + "/notes/getSingleCourseDetails",
   GET_FULL_NOTES_DETAILS: BASE_URL + "/notes/getFullNotesDetails",
   FETCH_RESUME_API: BASE_URL + "/notes/getResume",
+  FETCH_PURCHASED_RESUME_API: BASE_URL + "/profile/getPurchasedResume",
 }
 
 // RATINGS AND REVIEWS

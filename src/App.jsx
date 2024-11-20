@@ -51,6 +51,7 @@ import Terms from "./pages/Terms"
 import NotesCategoryPage from "./pages/NotesCategoryPage"
 import CoursesCategorypage from "./pages/CoursesCategorypage"
 import ResumePage from "./pages/ResumePage"
+import PurchasedResume from "./pages/PurchasedResume"
 
 function App() {
   const dispatch = useDispatch()
@@ -90,6 +91,7 @@ function App() {
         <Route path="/category/:courseName" element={<UnderDevelopmentPage />} />
         <Route path="/roadmaps/view" element={<UnderDevelopmentPage/>}/>
         <Route path="/resume/template" element={<ResumePage/>}/>
+
         {/* Open Route - for Only Non Logged in User */}
         <Route
           path="login"
@@ -164,10 +166,12 @@ function App() {
                 path="dashboard/enrolled-courses"
                 element={<EnrolledCourses />}
               />
-              <Route path="/dashboard/cart" element={<Cart />} />
+              <Route path="/dashboard/My-courses" element={<PurchasedResume/>} />
+              {/* // <Route path="dashboard/settings" element={<Settings />} /> */}
             </>
           )}
           <Route path="dashboard/settings" element={<Settings />} />
+          
         </Route>
 
         {/* For the watching course lectures */}
