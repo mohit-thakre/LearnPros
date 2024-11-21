@@ -145,11 +145,11 @@ console.log("Phone:", phone);
 
       const razorpay = new window.Razorpay(options);
       razorpay.open();
-      navigate("/dashboard/My-courses")
-      toast.success("Refresh the page to see Purchased Resume")
+      // navigate("/dashboard/My-courses")
+      // toast.success("Refresh the page to see Purchased Resume")
     } catch (error) {
-     // console.error("Error during payment process:", error);
-     // console.log(error.response.data.message)
+     console.error("Error during payment process:", error);
+     console.log(error.response.data.message)
       
       if(error)
       {
