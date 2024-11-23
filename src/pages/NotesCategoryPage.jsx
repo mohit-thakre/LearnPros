@@ -1,32 +1,31 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { GoArrowUpRight } from 'react-icons/go';
-import { fetchNotesCatagory } from '../services/operations/notesAPI';
+import React, { useEffect, useState } from "react"
+import { GoArrowUpRight } from "react-icons/go"
+import { Link } from "react-router-dom"
 
-import codeLogo1 from "../assets/Logo/html.png";
-import codeLogo2 from "../assets/Logo/javascript.png";
-import codeLogo3 from "../assets/Logo/python.png";
-import codeLogo4 from "../assets/Logo/java.png";
+import codeLogo1 from "../assets/Logo/html.png"
+import codeLogo4 from "../assets/Logo/java.png"
+import codeLogo2 from "../assets/Logo/javascript.png"
+import codeLogo3 from "../assets/Logo/python.png"
+import { fetchNotesCatagory } from "../services/operations/notesAPI"
 
 const NotesCategoryPage = () => {
-   const [Button, setButton] = useState([]);
-  const [loading,setLoading] = useState(false)
+  const [Button, setButton] = useState([])
+  const [loading, setLoading] = useState(false)
 
-    const fetchData = async () => {
-    setLoading(true);
-    const category = await fetchNotesCatagory();
+  const fetchData = async () => {
+    setLoading(true)
+    const category = await fetchNotesCatagory()
     if (category) {
-      setButton(category);
+      setButton(category)
     }
-    setLoading(false); 
-  };
+    setLoading(false)
+  }
 
-useEffect(() => {
+  useEffect(() => {
+    fetchData()
+  }, [])
 
-  fetchData();
-}, []);
-
-   if (loading ) {
+  if (loading) {
     return (
       <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
         <div className="spinner"></div>
@@ -40,24 +39,26 @@ useEffect(() => {
         Explore Our{" "}
         <span className="font-extrabold text-pink-300">Notes Category</span>
       </h1>
-      <p className="text-md text-center font-semibold text-gray-400 md:text-lg">
+      <p className="text-md text-gray-400 text-center font-semibold md:text-lg">
         Discover a wide range of course categories with LearnPros
       </p>
 
-      <div className="mt-8 flex w-full flex-wrap items-center justify-center gap-6 my-10 lg:w-[80%]">
+      <div className="my-10 mt-8 flex w-full flex-wrap items-center justify-center gap-6 lg:w-[80%]">
         {Button.map((item, index) => (
           <Link to={`/notes/${item.name.replace(/\s+/g, "-")}`} key={index}>
-            <div className="footer group my-2 max-w-xl flex flex-col items-center justify-center gap-3 rounded-lg  border-2 px-5 py-4 text-center transition-transform duration-300 ease-out hover:scale-105 shadow-2xl">
-              <span className="flex flex-row items-center gap-2 text-pink-300 font-bold text-xl  group-hover:text-gray-800">
+            <div className="footer group my-2 flex max-w-xl flex-col items-center justify-center gap-3 rounded-lg  border-2 px-5 py-4 text-center shadow-2xl transition-transform duration-300 ease-out hover:scale-105">
+              <span className="group-hover:text-gray-800 flex flex-row items-center gap-2 text-xl font-bold  text-pink-300">
                 {item.name} <GoArrowUpRight className="text-xl" />
               </span>
-              <span className="text-sm font-md text-richblack-50  group-hover:text-white">{item.description}</span>
+              <span className="font-md text-sm text-richblack-50  group-hover:text-white">
+                {item.description}
+              </span>
             </div>
           </Link>
         ))}
       </div>
 
-       <div className="ctg my-10 h-auto w-full rounded-3xl bg-gradient-to-r from-richblack-50 to-caribbeangreen-400 p-4 md:h-40 md:w-[80%] md:p-0">
+      <div className="ctg my-10 h-auto w-full rounded-3xl bg-gradient-to-r from-richblack-50 to-caribbeangreen-400 p-4 md:h-40 md:w-[80%] md:p-0">
         <div className="categorysec flex h-full w-full flex-col items-center justify-around gap-4 md:flex-row md:p-5">
           <div className="text-center  md:text-left">
             <p className="py-2 text-lg font-semibold text-richblack-100 md:text-xl  lg:py-0">
@@ -80,8 +81,7 @@ useEffect(() => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default NotesCategoryPage;
-  
+export default NotesCategoryPage

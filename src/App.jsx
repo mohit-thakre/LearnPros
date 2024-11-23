@@ -1,15 +1,20 @@
 import { useEffect } from "react"
+
 import "./App.css"
 // Redux
 import { useDispatch, useSelector } from "react-redux"
 // React Router
 import { Route, Routes, useNavigate } from "react-router-dom"
 
+import NavigationBar from "./components/Common/NavigationBar"
+import UnderDevelopmentPage from "./components/Common/UnderDevelopmentPage"
 // Components
 // import Navbar from "./components/Common/Navbar"
 import OpenRoute from "./components/core/Auth/OpenRoute"
 import PrivateRoute from "./components/core/Auth/PrivateRoute"
 import AddCourse from "./components/core/Dashboard/AddCourse"
+import EditNotes from "./components/core/Dashboard/AddNotes/EditNotes"
+import NotesBuilder from "./components/core/Dashboard/AddNotes/NotesBuilder"
 import Cart from "./components/core/Dashboard/Cart"
 import EditCourse from "./components/core/Dashboard/EditCourse"
 import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses"
@@ -17,41 +22,39 @@ import Instructor from "./components/core/Dashboard/Instructor"
 import MyCourses from "./components/core/Dashboard/MyCourses"
 import MyProfile from "./components/core/Dashboard/MyProfile"
 import Settings from "./components/core/Dashboard/Settings"
+import ScrollToTop from "./components/core/ScrollToTop"
 import VideoDetails from "./components/core/ViewCourse/VideoDetails"
 import About from "./pages/About"
+import AboutPage from "./pages/AboutPage"
 import Catalog from "./pages/Catalog"
 import Contact from "./pages/Contact"
 import CourseDetails from "./pages/CourseDetails"
+import CoursesCategorypage from "./pages/CoursesCategorypage"
 import Dashboard from "./pages/Dashboard"
 import Error from "./pages/Error"
+import ForgetPassword from "./pages/ForgetPassword"
 import ForgotPassword from "./pages/ForgotPassword"
 // Pages
 import Home from "./pages/Home"
 import Login from "./pages/Login"
+import LoginPage from "./pages/LoginPage"
+import NotesCatalog from "./pages/NotesCatalog"
+import NotesCategoryPage from "./pages/NotesCategoryPage"
+import Privacy from "./pages/Privacy"
+import PurchasedResume from "./pages/PurchasedResume"
+import Resetpassword from "./pages/Resetpassword"
+import ResumePage from "./pages/ResumePage"
+import RoadmapCard from "./pages/Roadmap/RoadmapCard"
+import RoadmapPage from "./pages/Roadmap/RoadmapPage"
 import Signup from "./pages/Signup"
+import SignupPage from "./pages/SignupPage"
+import Terms from "./pages/Terms"
 import UpdatePassword from "./pages/UpdatePassword"
 import VerifyEmail from "./pages/VerifyEmail"
+import VerifyOtp from "./pages/VerifyOtp"
 import ViewCourse from "./pages/ViewCourse"
 import { getUserDetails } from "./services/operations/profileAPI"
 import { ACCOUNT_TYPE } from "./utils/constants"
-import AboutPage from "./pages/AboutPage"
-import NavigationBar from "./components/Common/NavigationBar"
-import LoginPage from "./pages/LoginPage"
-import SignupPage from "./pages/SignupPage"
-import VerifyOtp from "./pages/VerifyOtp"
-import ForgetPassword from "./pages/ForgetPassword"
-import Resetpassword from "./pages/Resetpassword"
-import UnderDevelopmentPage from "./components/Common/UnderDevelopmentPage"
-import NotesBuilder from "./components/core/Dashboard/AddNotes/NotesBuilder"
-import NotesCatalog from "./pages/NotesCatalog"
-import EditNotes from "./components/core/Dashboard/AddNotes/EditNotes"
-import ScrollToTop from "./components/core/ScrollToTop"
-import Privacy from "./pages/Privacy"
-import Terms from "./pages/Terms"
-import NotesCategoryPage from "./pages/NotesCategoryPage"
-import CoursesCategorypage from "./pages/CoursesCategorypage"
-import ResumePage from "./pages/ResumePage"
-import PurchasedResume from "./pages/PurchasedResume"
 
 function App() {
   const dispatch = useDispatch()
@@ -68,29 +71,32 @@ function App() {
 
   return (
     <div className="flex min-h-screen w-screen flex-col bg-richblack-900 font-inter">
-    
+      <NavigationBar />
 
-        <NavigationBar />
-  
-     
-        <ScrollToTop/>
+      <ScrollToTop />
       <Routes>
-     
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<Contact />} />
-         <Route path="/terms" element={<Terms />} />
-         <Route path="/notescategory/notes" element={<NotesCategoryPage/>}/>
-          <Route path="/coursescategory/courses" element={<CoursesCategorypage/>}/>
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/notescategory/notes" element={<NotesCategoryPage />} />
+        <Route
+          path="/coursescategory/courses"
+          element={<CoursesCategorypage />}
+        />
         <Route path="/privacy&policy" element={<Privacy />} />
         <Route path="courses/:courseId" element={<CourseDetails />} />
         <Route path="catalog/:catalogName" element={<Catalog />} />
-        <Route path="notes/:notesName" element={<NotesCatalog/>} />
+        <Route path="notes/:notesName" element={<NotesCatalog />} />
         <Route path="/underdevelopment" element={<UnderDevelopmentPage />} />
         <Route path="/catalog/view-course" element={<CoursesCategorypage />} />
-        <Route path="/category/:courseName" element={<UnderDevelopmentPage />} />
-        <Route path="/roadmaps/view" element={<UnderDevelopmentPage/>}/>
-        <Route path="/resume/template" element={<ResumePage/>}/>
+        <Route
+          path="/category/:courseName"
+          element={<UnderDevelopmentPage />}
+        />
+        <Route path="/roadmaps/view" element={<RoadmapCard />} />
+        <Route path="/roadmap/:roadmapName" element={<RoadmapPage />} />
+        <Route path="/resume/template" element={<ResumePage />} />
 
         {/* Open Route - for Only Non Logged in User */}
         <Route
@@ -105,7 +111,7 @@ function App() {
           path="forgot-password"
           element={
             <OpenRoute>
-              <ForgetPassword/>
+              <ForgetPassword />
             </OpenRoute>
           }
         />
@@ -151,12 +157,15 @@ function App() {
               <Route path="dashboard/my-courses" element={<MyCourses />} />
               <Route path="dashboard/my-notes" element={<MyCourses />} />
               <Route path="dashboard/add-course" element={<AddCourse />} />
-              <Route path="dashboard/add-notes" element={<NotesBuilder/>} />
+              <Route path="dashboard/add-notes" element={<NotesBuilder />} />
               <Route
                 path="dashboard/edit-course/:courseId"
                 element={<EditCourse />}
               />
-              <Route path="dashboard/edit-notes/:notesId" element={<EditNotes/>}/>
+              <Route
+                path="dashboard/edit-notes/:notesId"
+                element={<EditNotes />}
+              />
             </>
           )}
           {/* Route only for Students */}
@@ -166,12 +175,14 @@ function App() {
                 path="dashboard/enrolled-courses"
                 element={<EnrolledCourses />}
               />
-              <Route path="/dashboard/My-courses" element={<PurchasedResume/>} />
+              <Route
+                path="/dashboard/My-courses"
+                element={<PurchasedResume />}
+              />
               {/* // <Route path="dashboard/settings" element={<Settings />} /> */}
             </>
           )}
           <Route path="dashboard/settings" element={<Settings />} />
-          
         </Route>
 
         {/* For the watching course lectures */}

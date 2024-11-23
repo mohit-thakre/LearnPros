@@ -9,7 +9,7 @@ import { FaShoppingCart } from 'react-icons/fa';
 
 import ConfirmationModal from '../components/Common/ConfirmationModal';
 import { studentEndpoints } from '../services/apis';
-import razorpayLogo from "../assets/Logo/learnpros_dark1.png"
+import razorpayLogo from "../assets/Logo/payment_logo.png"
 
 const ResumePage = () => {
   const token = localStorage.getItem("token");
@@ -136,7 +136,7 @@ console.log("Phone:", phone);
          prefill: {
         name: user?.additionalDetails?.name || "user",
         email: user?.email || "user@example.com",
-        contact: phone, 
+        contact: phone || "0000000000", 
     },
         theme: {
           color: "#Ahf2BF",
