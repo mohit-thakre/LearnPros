@@ -24,7 +24,7 @@ const FooterPage = () => {
           <div className="flex flex-col items-center gap-3 lg:items-start">
             <h1 className="text-2xl font-bold text-white">Follow us</h1>
             <a
-              href="https://github.com/mohit-thakre/LearnPros"
+              //href="https://github.com/mohit-thakre/LearnPros"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-gray-800 flex items-center gap-2 rounded-lg border-2 px-4 py-2 text-white transition-colors hover:bg-caribbeangreen-600"
@@ -35,7 +35,7 @@ const FooterPage = () => {
             <p className="text-center lg:text-left">
               Made with 🍵 by{" "}
               <a
-                href="https://mohit-thakre.github.io/PORTFOLIO-V2/"
+                //href="https://mohit-thakre.github.io/PORTFOLIO-V2/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-yellow-300"
